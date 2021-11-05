@@ -24,13 +24,29 @@ function Routes() {
       <Route exact path="/bebidas" component={ Drinks } />
       <Route exact path="/comidas/:idMeal" component={ MealRecipeDetails } />
       <Route exact path="/bebidas/:idDrink" component={ DrinkRecipeDetails } />
-      <Route exact path="/comidas/:idMeal/in-progress" component={ MealRecipeInProgress } />
-      <Route exact path="/bebidas/:idDrink/in-progress" component={ DrinkRecipeInProgress } />
+      <Route
+        exact
+        path="/comidas/:idMeal/in-progress"
+        component={ MealRecipeInProgress }
+      />
+      <Route
+        exact
+        path="/bebidas/:idDrink/in-progress"
+        component={ DrinkRecipeInProgress }
+      />
       <Route exact path="/explorar" component={ Explore } />
       <Route exact path="/explorar/comidas" component={ ExploreMeals } />
       <Route exact path="/explorar/bebidas" component={ ExploreDrinks } />
-      <Route exact path="/explorar/comidas/ingredientes" component={ ExploreIngredients } />
-      <Route exact path="/explorar/bebidas/ingredientes" component={ ExploreIngredients } />
+      <Route
+        exact
+        path="/explorar/comidas/ingredientes"
+        component={ ExploreIngredients }
+      />
+      <Route
+        exact
+        path="/explorar/bebidas/ingredientes"
+        component={ ExploreIngredients }
+      />
       <Route exact path="/explorar/comidas/area" component={ ExploreOrigin } />
       <Route exact path="/perfil" component={ Profile } />
       <Route exact path="/receitas-feitas" component={ RecipesMade } />
