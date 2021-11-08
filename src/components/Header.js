@@ -3,9 +3,11 @@ import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import profileIcon from '../images/profileIcon.svg';
 import searchIcon from '../images/searchIcon.svg';
+import SearchBarHeader from './SearchBarHeader';
 
 function Header({ title, showButton }) {
   const [showSearchBar, setShowSearchBar] = useState(false);
+
   return (
     <header>
       <Link to="/perfil">
@@ -34,10 +36,7 @@ function Header({ title, showButton }) {
           </button>
         )}
       { showSearchBar && (
-        <input
-          type="text"
-          data-testid="search-input"
-        />
+        <SearchBarHeader />
       )}
     </header>
   );
