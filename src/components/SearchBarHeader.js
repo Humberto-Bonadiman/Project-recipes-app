@@ -16,10 +16,24 @@ function SearchBarHeader() {
     if (history.location.pathname === '/comidas') {
       const resultApi = await callApiMeals(searchInput, searchType);
       setApiMeals(resultApi);
+      if (!resultApi) {
+        return global
+          .alert('Sinto muito, não encontramos nenhuma receita para esses filtros.');
+      }
+      if (resultApi.length === 1) {
+        history.push(`/comidas/${resultApi[0].idMeal}`);
+      }
     }
     if (history.location.pathname === '/bebidas') {
-      const resultiApi = await callApiDrinks(searchInput, searchType);
-      setApiDrinks(resultiApi);
+      const resultApi = await callApiDrinks(searchInput, searchType);
+      setApiDrinks(resultApi);
+      if (!resultApi) {
+        return global
+          .alert('Sinto muito, não encontramos nenhuma receita para esses filtros.');
+      }
+      if (resultApi.length === 1) {
+        history.push(`/bebidas/${resultApi[0].idDrink}`);
+      }
     }
   };
 
