@@ -1,5 +1,6 @@
 import React, { useContext } from 'react';
 import Header from '../components/Header';
+import Footer from '../components/Footer';
 import DrinkRecipeCard from '../components/DrinkRecipeCard';
 import RecipesContext from '../context/RecipesContext';
 
@@ -15,6 +16,7 @@ function Drinks() {
         }
         return null;
       })}
+      <Footer />
     </div>
   );
 }
