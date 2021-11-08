@@ -7,7 +7,7 @@ import mealIcon from '../images/mealIcon.svg';
 function Footer() {
   return (
     <footer data-testid="footer">
-      <Link to="/perfil">
+      <Link to="/bebidas">
         <button
           type="button"
         >
@@ -18,7 +18,7 @@ function Footer() {
           />
         </button>
       </Link>
-      <Link to="/perfil">
+      <Link to="/explorar">
         <button
           type="button"
         >
@@ -29,7 +29,7 @@ function Footer() {
           />
         </button>
       </Link>
-      <Link to="/perfil">
+      <Link to="/comidas">
         <button
           type="button"
         >
