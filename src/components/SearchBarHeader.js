@@ -1,11 +1,26 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
+import { useHistory } from 'react-router';
+import RecipesContext from '../context/RecipesContext';
+import { callApiMeals, callApiDrinks } from '../services/fetchApi';
 
 function SearchBarHeader() {
+  const { setApiMeals, setApiDrinks } = useContext(RecipesContext);
   const [searchType, setSearchType] = useState('');
   const [searchInput, setSearchInput] = useState('');
+  const history = useHistory();
 
-  const handleChange = (value) => {
-    setSearchType(value);
+  const handleClick = async () => {
+    if (searchType === 'first-letter' && searchInput.length > 1) {
+      global.alert('Sua busca deve conter somente 1 (um) caracter');
+    }
+    if (history.location.pathname === '/comidas') {
+      const resultApi = await callApiMeals(searchInput, searchType);
+      setApiMeals(resultApi);
+    }
+    if (history.location.pathname === '/bebidas') {
+      const resultiApi = await callApiDrinks(searchInput, searchType);
+      setApiDrinks(resultiApi);
+    }
   };
 
   return (
@@ -24,7 +39,7 @@ function SearchBarHeader() {
           name={ searchType }
           data-testid="ingredient-search-radio"
           value="ingredient"
-          onChange={ ({ target: { value } }) => handleChange(value) }
+          onChange={ ({ target: { value } }) => setSearchType(value) }
         />
         Ingrediente
       </label>
@@ -35,7 +50,7 @@ function SearchBarHeader() {
           name={ searchType }
           data-testid="name-search-radio"
           value="name"
-          onChange={ ({ target: { value } }) => handleChange(value) }
+          onChange={ ({ target: { value } }) => setSearchType(value) }
         />
         Nome
       </label>
@@ -46,7 +61,7 @@ function SearchBarHeader() {
           name={ searchType }
           data-testid="first-letter-search-radio"
           value="first-letter"
-          onChange={ ({ target: { value } }) => handleChange(value) }
+          onChange={ ({ target: { value } }) => setSearchType(value) }
         />
         Primeira letra
       </label>
@@ -54,6 +69,7 @@ function SearchBarHeader() {
       <button
         type="button"
         data-testid="exec-search-btn"
+        onClick={ handleClick }
       >
         Buscar
       </button>
