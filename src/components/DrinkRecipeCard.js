@@ -3,13 +3,22 @@ import PropTypes from 'prop-types';
 
 function DrinkRecipeCard({ recipe, index }) {
   return (
-    <div data-testid={ `${index}-recipe-card` }>
+    <div
+      className="recipe-card"
+      data-testid={ `${index}-recipe-card` }
+    >
       <img
+        className="card-img"
         data-testid={ `${index}-card-img` }
         src={ recipe.strDrinkThumb }
         alt={ recipe.strDrink }
       />
-      <h4 data-testid={ `${index}-card-name` }>{recipe.strDrink}</h4>
+      <h4
+        className="card-name"
+        data-testid={ `${index}-card-name` }
+      >
+        {recipe.strDrink}
+      </h4>
     </div>
   );
 }

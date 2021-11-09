@@ -1,0 +1,27 @@
+.login-form {
+  display: flex;
+  flex-direction: column;
+  height: 140px;
+  justify-content: space-between;
+  margin: 50% 10%;
+}
+
+.email-input, .password-input {
+  border-radius: 18px;
+  height: 36px;
+  padding-left: 15px;
+}
+
+.login-submit-btn {
+  background-color: rgb(24, 163, 255);
+  border-radius: 22px;
+  color: white;
+  font-weight: 700;
+  margin-top: 10px;
+  padding: 9px;
+}
+
+.login-submit-btn:disabled {
+  background-color: rgba(0, 153, 255, 0.5);
+  color: rgba(0, 0, 0, 0.5);
+}

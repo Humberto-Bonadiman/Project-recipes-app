@@ -3,13 +3,15 @@ import { Link } from 'react-router-dom';
 import drinkIcon from '../images/drinkIcon.svg';
 import exploreIcon from '../images/exploreIcon.svg';
 import mealIcon from '../images/mealIcon.svg';
+import '../styles/Footer.css';
 
 function Footer() {
   return (
-    <footer data-testid="footer">
+    <footer className="footer" data-testid="footer">
       <Link to="/bebidas">
         <button
           type="button"
+          className="icon-btn"
         >
           <img
             data-testid="drinks-bottom-btn"
@@ -21,6 +23,7 @@ function Footer() {
       <Link to="/explorar">
         <button
           type="button"
+          className="icon-btn"
         >
           <img
             data-testid="explore-bottom-btn"
@@ -32,6 +35,7 @@ function Footer() {
       <Link to="/comidas">
         <button
           type="button"
+          className="icon-btn"
         >
           <img
             data-testid="food-bottom-btn"

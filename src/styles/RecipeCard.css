@@ -1,0 +1,32 @@
+.recipes-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+}
+
+.recipe-card {
+  border-radius: 5px;
+  box-shadow: 0 2px 5px 1px rgb(185, 185, 185);
+  display: flex;
+  flex-wrap: wrap;
+  height: fit-content;
+  margin: 3% 0 0;
+  width: 45%;
+}
+
+.recipe-card:last-child {
+  margin-bottom: 90px;
+}
+
+.card-img {
+  height: 120px;
+}
+
+.card-img > img {
+  position: absolute;
+}
+
+.card-name {
+  font-size: 15px;
+  margin: 10px 5px 5px;
+}
