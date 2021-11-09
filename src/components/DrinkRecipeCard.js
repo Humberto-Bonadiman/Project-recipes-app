@@ -1,11 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 
 function DrinkRecipeCard({ recipe, index }) {
   return (
-    <div
+    <Link
       className="recipe-card"
       data-testid={ `${index}-recipe-card` }
+      to={ `/bebidas/${recipe.idDrink}` }
     >
       <img
         className="card-img"
@@ -19,7 +21,7 @@ function DrinkRecipeCard({ recipe, index }) {
       >
         {recipe.strDrink}
       </h4>
-    </div>
+    </Link>
   );
 }
 

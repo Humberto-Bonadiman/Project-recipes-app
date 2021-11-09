@@ -1,11 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 
 function MealRecipeCard({ recipe, index }) {
   return (
-    <div
+    <Link
       className="recipe-card"
       data-testid={ `${index}-recipe-card` }
+      to={ `/comidas/${recipe.idMeal}` }
     >
       <img
         className="card-img"
@@ -19,7 +21,7 @@ function MealRecipeCard({ recipe, index }) {
       >
         {recipe.strMeal}
       </h4>
-    </div>
+    </Link>
   );
 }
 

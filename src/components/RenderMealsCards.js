@@ -4,7 +4,9 @@ import MealRecipeCard from './MealRecipeCard';
 function RenderMealsCards(recipe, index) {
   const MAX_LENGTH = 12;
   if (index < MAX_LENGTH) {
-    return (<MealRecipeCard key={ index } recipe={ recipe } index={ index } />);
+    return (
+      <MealRecipeCard key={ index } recipe={ recipe } index={ index } />
+    );
   }
   return null;
 }
