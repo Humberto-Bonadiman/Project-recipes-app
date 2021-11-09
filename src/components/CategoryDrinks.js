@@ -45,6 +45,16 @@ function CategoryDrinks() {
 
   return (
     <div>
+      <button
+        type="button"
+        data-testid="All-category-filter"
+        onClick={ () => {
+          setShowFilter(false);
+          setShowAll(true);
+        } }
+      >
+        All
+      </button>
       { categoryDrinks.map((category, index) => {
         if (index < MAX_LENGTH) {
           return (
