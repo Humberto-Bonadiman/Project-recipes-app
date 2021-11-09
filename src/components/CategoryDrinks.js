@@ -10,6 +10,8 @@ function CategoryDrinks() {
     setShowFilter,
     showAll,
     setShowAll,
+    filterDrinks,
+    setFilterDrinks,
   } = useContext(RecipesContext);
   const MAX_LENGTH = 5;
 
@@ -28,8 +30,17 @@ function CategoryDrinks() {
     const response = await urlFetch.json();
     const result = response.drinks;
     setApiFilterDrinks(result);
-    setShowFilter(!showFilter);
-    setShowAll(!showAll);
+    if (!filterDrinks) {
+      setFilterDrinks(target.value);
+    }
+    if (target.value !== filterDrinks) {
+      setFilterDrinks(target.value);
+      setShowFilter(true);
+      setShowAll(false);
+    } else {
+      setShowFilter(!showFilter);
+      setShowAll(!showAll);
+    }
   }
 
   return (

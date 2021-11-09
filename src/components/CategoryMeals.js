@@ -10,6 +10,8 @@ function CategoryMeals() {
     setShowFilter,
     showAll,
     setShowAll,
+    filterMeals,
+    setFilterMeals,
   } = useContext(RecipesContext);
   const MAX_LENGTH = 5;
 
@@ -28,8 +30,17 @@ function CategoryMeals() {
     const response = await urlFetch.json();
     const result = response.meals;
     setApiFilterMeals(result);
-    setShowFilter(!showFilter);
-    setShowAll(!showAll);
+    if (!filterMeals) {
+      setFilterMeals(target.value);
+    }
+    if (target.value !== filterMeals) {
+      setFilterMeals(target.value);
+      setShowFilter(true);
+      setShowAll(false);
+    } else {
+      setShowFilter(!showFilter);
+      setShowAll(!showAll);
+    }
   }
 
   return (
