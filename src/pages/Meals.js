@@ -3,6 +3,7 @@ import Header from '../components/Header';
 import Footer from '../components/Footer';
 import MealRecipeCard from '../components/MealRecipeCard';
 import RecipesContext from '../context/RecipesContext';
+import CategoryMeals from '../components/CategoryMeals';
 
 function Meals() {
   const { apiMeals, setApiMeals } = useContext(RecipesContext);
@@ -21,6 +22,7 @@ function Meals() {
   return (
     <div>
       <Header title="Comidas" showButton />
+      <CategoryMeals />
       { apiMeals && apiMeals.map((recipe, index) => {
         if (index < MAX_LENGTH) {
           return <MealRecipeCard key={ index } recipe={ recipe } index={ index } />;
