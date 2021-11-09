@@ -1,23 +1,39 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect } from 'react';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
-import MealRecipeCard from '../components/MealRecipeCard';
 import RecipesContext from '../context/RecipesContext';
+import CategoryMeals from '../components/CategoryMeals';
+import RenderMealsCards from '../components/RenderMealsCards';
 import '../styles/RecipeCard.css';
 
 function Meals() {
-  const { apiMeals } = useContext(RecipesContext);
-  const MAX_LENGTH = 12;
+  const {
+    apiMeals,
+    setApiMeals,
+    showAll,
+    showFilter,
+    apiFilterMeals,
+  } = useContext(RecipesContext);
+
+  useEffect(() => {
+    const fetchMeals = async () => {
+      const urlFetch = await fetch('https://www.themealdb.com/api/json/v1/1/search.php?s=');
+      const response = await urlFetch.json();
+      const result = response.meals;
+      setApiMeals(result);
+    };
+    fetchMeals();
+  }, []);
+
   return (
     <div>
       <Header title="Comidas" showButton />
+      <CategoryMeals />
       <main className="recipes-list">
-        { apiMeals && apiMeals.map((recipe, index) => {
-          if (index < MAX_LENGTH) {
-            return <MealRecipeCard key={ index } recipe={ recipe } index={ index } />;
-          }
-          return null;
-        })}
+        { showAll && apiMeals && apiMeals
+          .map((recipe, index) => RenderMealsCards(recipe, index))}
+        { showFilter && apiFilterMeals && apiFilterMeals
+          .map((recipe, index) => RenderMealsCards(recipe, index))}
       </main>
       <Footer />
     </div>
