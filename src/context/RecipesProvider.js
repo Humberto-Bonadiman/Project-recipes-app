@@ -7,6 +7,10 @@ export default function Provider({ children }) {
   const [apiDrinks, setApiDrinks] = useState([]);
   const [categoryMeals, setCategoryMeals] = useState([]);
   const [categoryDrinks, setCategoryDrinks] = useState([]);
+  const [apiFilterMeals, setApiFilterMeals] = useState([]);
+  const [showFilter, setShowFilter] = useState(false);
+  const [showAll, setShowAll] = useState(true);
+  const [apiFilterDrinks, setApiFilterDrinks] = useState([]);
 
   const context = {
     apiMeals,
@@ -17,6 +21,14 @@ export default function Provider({ children }) {
     setCategoryMeals,
     categoryDrinks,
     setCategoryDrinks,
+    apiFilterMeals,
+    setApiFilterMeals,
+    showFilter,
+    setShowFilter,
+    showAll,
+    setShowAll,
+    apiFilterDrinks,
+    setApiFilterDrinks,
   };
 
   return (

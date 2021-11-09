@@ -1,13 +1,18 @@
 import React, { useContext, useEffect } from 'react';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
-import MealRecipeCard from '../components/MealRecipeCard';
 import RecipesContext from '../context/RecipesContext';
 import CategoryMeals from '../components/CategoryMeals';
+import RenderMealsCards from '../components/RenderMealsCards';
 
 function Meals() {
-  const { apiMeals, setApiMeals } = useContext(RecipesContext);
-  const MAX_LENGTH = 12;
+  const {
+    apiMeals,
+    setApiMeals,
+    showAll,
+    showFilter,
+    apiFilterMeals,
+  } = useContext(RecipesContext);
 
   useEffect(() => {
     const fetchMeals = async () => {
@@ -23,12 +28,10 @@ function Meals() {
     <div>
       <Header title="Comidas" showButton />
       <CategoryMeals />
-      { apiMeals && apiMeals.map((recipe, index) => {
-        if (index < MAX_LENGTH) {
-          return <MealRecipeCard key={ index } recipe={ recipe } index={ index } />;
-        }
-        return null;
-      })}
+      { showAll && apiMeals && apiMeals
+        .map((recipe, index) => RenderMealsCards(recipe, index))}
+      { showFilter && apiFilterMeals && apiFilterMeals
+        .map((recipe, index) => RenderMealsCards(recipe, index))}
       <Footer />
     </div>
   );
