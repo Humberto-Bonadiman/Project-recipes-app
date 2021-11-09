@@ -4,41 +4,44 @@ import { Link } from 'react-router-dom';
 import profileIcon from '../images/profileIcon.svg';
 import searchIcon from '../images/searchIcon.svg';
 import SearchBarHeader from './SearchBarHeader';
+import '../styles/Header.css';
 
 function Header({ title, showButton }) {
   const [showSearchBar, setShowSearchBar] = useState(false);
 
   return (
-    <header>
-      <Link to="/perfil">
-        <button
-          type="button"
-        >
-          <img
-            data-testid="profile-top-btn"
-            src={ profileIcon }
-            alt="Ícone do perfil"
-          />
-        </button>
-      </Link>
-      <h1 data-testid="page-title">{ title }</h1>
-      { showButton
-        && (
+    <>
+      <header className="header">
+        <Link to="/perfil">
           <button
             type="button"
-            onClick={ () => setShowSearchBar(!showSearchBar) }
+            className="icon-btn"
           >
             <img
-              data-testid="search-top-btn"
-              src={ searchIcon }
-              alt="Ícone de pesquisa"
+              data-testid="profile-top-btn"
+              src={ profileIcon }
+              alt="Ícone do perfil"
             />
           </button>
-        )}
-      { showSearchBar && (
-        <SearchBarHeader />
-      )}
-    </header>
+        </Link>
+        <h4 className="page-title" data-testid="page-title">{ title }</h4>
+        { showButton
+          && (
+            <button
+              type="button"
+              className="icon-btn"
+              onClick={ () => setShowSearchBar(!showSearchBar) }
+            >
+              <img
+                data-testid="search-top-btn"
+                src={ searchIcon }
+                alt="Ícone de pesquisa"
+              />
+            </button>
+          )}
+      </header>
+      { showSearchBar && <SearchBarHeader />}
+    </>
   );
 }
 
