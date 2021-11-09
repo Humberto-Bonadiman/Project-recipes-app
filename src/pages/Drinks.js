@@ -33,7 +33,7 @@ function Drinks() {
         { showAll && apiDrinks && apiDrinks
           .map((recipe, index) => RenderDrinksCards(recipe, index))}
         { showFilter && apiFilterDrinks && apiFilterDrinks
-          .map((recipe, index) => RenderDrinksCards(recipe, index))}       
+          .map((recipe, index) => RenderDrinksCards(recipe, index))}
       </main>
       <Footer />
     </div>
