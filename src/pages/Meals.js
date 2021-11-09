@@ -4,6 +4,7 @@ import Footer from '../components/Footer';
 import RecipesContext from '../context/RecipesContext';
 import CategoryMeals from '../components/CategoryMeals';
 import RenderMealsCards from '../components/RenderMealsCards';
+import '../styles/RecipeCard.css';
 
 function Meals() {
   const {
@@ -28,10 +29,12 @@ function Meals() {
     <div>
       <Header title="Comidas" showButton />
       <CategoryMeals />
-      { showAll && apiMeals && apiMeals
-        .map((recipe, index) => RenderMealsCards(recipe, index))}
-      { showFilter && apiFilterMeals && apiFilterMeals
-        .map((recipe, index) => RenderMealsCards(recipe, index))}
+      <main className="recipes-list">
+        { showAll && apiMeals && apiMeals
+          .map((recipe, index) => RenderMealsCards(recipe, index))}
+        { showFilter && apiFilterMeals && apiFilterMeals
+          .map((recipe, index) => RenderMealsCards(recipe, index))}
+      </main>
       <Footer />
     </div>
   );

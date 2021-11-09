@@ -38,48 +38,49 @@ function SearchBarHeader() {
   };
 
   return (
-    <form>
+    <form className="search-bar">
       <input
         type="text"
         data-testid="search-input"
+        placeholder="Buscar Receita"
         onChange={ (e) => setSearchInput(e.target.value) }
         name={ searchInput }
       />
-      <br />
-      <label htmlFor="ingredient">
-        <input
-          id="ingredient"
-          type="radio"
-          name={ searchType }
-          data-testid="ingredient-search-radio"
-          value="ingredient"
-          onChange={ ({ target: { value } }) => setSearchType(value) }
-        />
-        Ingrediente
-      </label>
-      <label htmlFor="name">
-        <input
-          id="name"
-          type="radio"
-          name={ searchType }
-          data-testid="name-search-radio"
-          value="name"
-          onChange={ ({ target: { value } }) => setSearchType(value) }
-        />
-        Nome
-      </label>
-      <label htmlFor="first-letter">
-        <input
-          id="first-letter"
-          type="radio"
-          name={ searchType }
-          data-testid="first-letter-search-radio"
-          value="first-letter"
-          onChange={ ({ target: { value } }) => setSearchType(value) }
-        />
-        Primeira letra
-      </label>
-      <br />
+      <div className="search-radios">
+        <label className="ingredient-radio" htmlFor="ingredient">
+          <input
+            id="ingredient"
+            type="radio"
+            name={ searchType }
+            data-testid="ingredient-search-radio"
+            value="ingredient"
+            onChange={ ({ target: { value } }) => setSearchType(value) }
+          />
+          Ingrediente
+        </label>
+        <label className="name-radio" htmlFor="name">
+          <input
+            id="name"
+            type="radio"
+            name={ searchType }
+            data-testid="name-search-radio"
+            value="name"
+            onChange={ ({ target: { value } }) => setSearchType(value) }
+          />
+          Nome
+        </label>
+        <label className="first-letter-radio" htmlFor="first-letter">
+          <input
+            id="first-letter"
+            type="radio"
+            name={ searchType }
+            data-testid="first-letter-search-radio"
+            value="first-letter"
+            onChange={ ({ target: { value } }) => setSearchType(value) }
+          />
+          Primeira letra
+        </label>
+      </div>
       <button
         type="button"
         data-testid="exec-search-btn"

@@ -4,6 +4,7 @@ import Footer from '../components/Footer';
 import RecipesContext from '../context/RecipesContext';
 import CategoryDrinks from '../components/CategoryDrinks';
 import RenderDrinksCards from '../components/RenderDrinksCards';
+import '../styles/RecipeCard.css';
 
 function Drinks() {
   const {
@@ -28,10 +29,12 @@ function Drinks() {
     <div>
       <Header title="Bebidas" showButton />
       <CategoryDrinks />
-      { showAll && apiDrinks && apiDrinks
-        .map((recipe, index) => RenderDrinksCards(recipe, index))}
-      { showFilter && apiFilterDrinks && apiFilterDrinks
-        .map((recipe, index) => RenderDrinksCards(recipe, index))}
+      <main className="recipes-list">
+        { showAll && apiDrinks && apiDrinks
+          .map((recipe, index) => RenderDrinksCards(recipe, index))}
+        { showFilter && apiFilterDrinks && apiFilterDrinks
+          .map((recipe, index) => RenderDrinksCards(recipe, index))}       
+      </main>
       <Footer />
     </div>
   );
