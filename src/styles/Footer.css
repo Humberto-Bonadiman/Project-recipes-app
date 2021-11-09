@@ -1,0 +1,13 @@
+.footer {
+  background-color: rgb(241, 241, 241);
+  bottom: 0;
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+  position: fixed;
+  width: 360px;
+}
+
+.icon-btn {
+  border: none;
+}

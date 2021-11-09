@@ -3,6 +3,7 @@ import Header from '../components/Header';
 import Footer from '../components/Footer';
 import DrinkRecipeCard from '../components/DrinkRecipeCard';
 import RecipesContext from '../context/RecipesContext';
+import '../styles/RecipeCard.css';
 
 function Drinks() {
   const { apiDrinks } = useContext(RecipesContext);
@@ -10,12 +11,14 @@ function Drinks() {
   return (
     <div>
       <Header title="Bebidas" showButton />
-      { apiDrinks && apiDrinks.map((recipe, index) => {
-        if (index < MAX_LENGTH) {
-          return <DrinkRecipeCard key={ index } recipe={ recipe } index={ index } />;
-        }
-        return null;
-      })}
+      <main className="recipes-list">
+        { apiDrinks && apiDrinks.map((recipe, index) => {
+          if (index < MAX_LENGTH) {
+            return <DrinkRecipeCard key={ index } recipe={ recipe } index={ index } />;
+          }
+          return null;
+        })}
+      </main>
       <Footer />
     </div>
   );
