@@ -2,7 +2,7 @@ import React, { useEffect, useContext } from 'react';
 import RecipesContext from '../context/RecipesContext';
 
 function CategoryMeals() {
-  const { categoryMeals, setCategoryMeals } = useContext(RecipesContext);
+  const { categoryMeals, setCategoryMeals, setApiMeals } = useContext(RecipesContext);
   const MAX_LENGTH = 5;
 
   useEffect(() => {
@@ -15,6 +15,13 @@ function CategoryMeals() {
     fetchMealsCategories();
   }, []);
 
+  async function handleClick({ target }) {
+    const urlFetch = await fetch(`https://www.themealdb.com/api/json/v1/1/filter.php?c=${target.value}`);
+    const response = await urlFetch.json();
+    const result = response.meals;
+    setApiMeals(result);
+  }
+
   return (
     <div>
       { categoryMeals.map((category, index) => {
@@ -24,6 +31,8 @@ function CategoryMeals() {
               type="button"
               key={ index }
               data-testid={ `${category.strCategory}-category-filter` }
+              onClick={ (event) => handleClick(event) }
+              value={ category.strCategory }
             >
               {category.strCategory}
             </button>
