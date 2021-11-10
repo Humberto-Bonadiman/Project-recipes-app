@@ -14,10 +14,9 @@ function DrinkRecipeDetails() {
       const response = await fetch(`https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=${idDrink}`);
       const data = await response.json();
       setRecipeDetails(data.drinks[0]);
-      console.log(data.drinks[0]);
     };
     fetchRecipeDetails();
-  }, []);
+  }, [idDrink]);
 
   return (
     <section>

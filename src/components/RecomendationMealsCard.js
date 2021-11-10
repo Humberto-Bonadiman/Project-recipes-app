@@ -1,6 +1,7 @@
 import React, { useContext, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import RecipesContext from '../context/RecipesContext';
+import '../styles/carousel.css';
 
 function RecomendationMealsCard() {
   const { apiMeals, setApiMeals } = useContext(RecipesContext);
@@ -15,13 +16,13 @@ function RecomendationMealsCard() {
     fetchMeals();
   }, []);
   return (
-    <section>
+    <div className="flex">
       { apiMeals && apiMeals
         .map((recipe, index) => {
           if (index < MAX_MEALS) {
             return (
               <Link
-                className="recipe-card"
+                className="carousel recipe-card"
                 data-testid={ `${index}-recomendation-card` }
                 to={ `/comidas/${recipe.idMeal}` }
                 key={ index }
@@ -35,7 +36,7 @@ function RecomendationMealsCard() {
                 <h5>{ recipe.strCategory }</h5>
                 <h4
                   className="card-name"
-                  data-testid={ `${index}-card-name` }
+                  data-testid={ `${index}-recomendation-title` }
                 >
                   {recipe.strMeal}
                 </h4>
@@ -44,7 +45,7 @@ function RecomendationMealsCard() {
           }
           return null;
         })}
-    </section>
+    </div>
   );
 }
 
