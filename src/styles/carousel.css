@@ -3,11 +3,12 @@
   flex-wrap: nowrap;
   overflow-x: scroll;
 }
+
 .carousel {
   display: flex;
   flex-direction: column;
   flex-wrap: nowrap;
-  min-width: 200px;
 	height: 50%;
 	margin: 1rem;
+  min-width: 200px;
 }
