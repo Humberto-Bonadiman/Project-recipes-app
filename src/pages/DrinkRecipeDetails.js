@@ -9,6 +9,8 @@ import RecipeHeaderDrinksDetails from '../components/RecipeHeaderDrinksDetails';
 function DrinkRecipeDetails() {
   const { idDrink } = useParams();
   const [recipeDetails, setRecipeDetails] = useState({});
+  const [showStartButton, setShowStartButton] = useState(true);
+
   useEffect(() => {
     const fetchRecipeDetails = async () => {
       const response = await fetch(`https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=${idDrink}`);
@@ -18,13 +20,20 @@ function DrinkRecipeDetails() {
     fetchRecipeDetails();
   }, [idDrink]);
 
+  useEffect(() => {
+    const doneRecipes = JSON.parse(localStorage.getItem('doneRecipes')) || [];
+    if (doneRecipes.some((recipe) => recipe.id === idDrink)) {
+      setShowStartButton(false);
+    }
+  }, [idDrink]);
+
   return (
     <section>
       <RecipeHeaderDrinksDetails recipeDetails={ recipeDetails } />
       <RecipeIngredientDetails recipeDetails={ recipeDetails } />
       <RecipeInstructionsDetails recipeDetails={ recipeDetails } />
       <RecomendationMealsCard />
-      <StartRecipeButton />
+      {showStartButton && <StartRecipeButton />}
     </section>
   );
 }

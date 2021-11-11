@@ -10,6 +10,8 @@ import StartRecipeButton from '../components/StartRecipeButton';
 function MealRecipeDetails() {
   const { idMeal } = useParams();
   const [recipeDetails, setRecipeDetails] = useState({});
+  const [showStartButton, setShowStartButton] = useState(true);
+
   useEffect(() => {
     const fetchRecipeDetails = async () => {
       const response = await fetch(`https://www.themealdb.com/api/json/v1/1/lookup.php?i=${idMeal}`);
@@ -19,6 +21,13 @@ function MealRecipeDetails() {
     fetchRecipeDetails();
   }, [idMeal]);
 
+  useEffect(() => {
+    const doneRecipes = JSON.parse(localStorage.getItem('doneRecipes')) || [];
+    if (doneRecipes.some((recipe) => recipe.id === idMeal)) {
+      setShowStartButton(false);
+    }
+  }, [idMeal]);
+
   return (
     <section>
       <RecipeHeaderMealsDetails recipeDetails={ recipeDetails } />
@@ -26,7 +35,7 @@ function MealRecipeDetails() {
       <RecipeInstructionsDetails recipeDetails={ recipeDetails } />
       <RecipeVideoDetails recipeDetails={ recipeDetails } />
       <RecomendationDrinksCard />
-      <StartRecipeButton />
+      {showStartButton && <StartRecipeButton /> }
     </section>
   );
 }
