@@ -4,7 +4,6 @@ import '../styles/StartRecipeButton.css';
 
 function StartRecipeButton() {
   const history = useHistory();
-  console.log(history);
   const redirect = () => {
     history.push(`${history.location.pathname}/in-progress`);
   };
