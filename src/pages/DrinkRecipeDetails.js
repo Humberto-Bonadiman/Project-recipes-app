@@ -5,11 +5,13 @@ import RecipeInstructionsDetails from '../components/RecipeInstructionsDetails';
 import RecomendationMealsCard from '../components/RecomendationMealsCard';
 import StartRecipeButton from '../components/StartRecipeButton';
 import RecipeHeaderDrinksDetails from '../components/RecipeHeaderDrinksDetails';
+import ContinueRecipeButton from '../components/ContinueRecipeButton';
 
 function DrinkRecipeDetails() {
   const { idDrink } = useParams();
   const [recipeDetails, setRecipeDetails] = useState({});
   const [showStartButton, setShowStartButton] = useState(true);
+  const [showContinueButton, setShowContinueButton] = useState(false);
 
   useEffect(() => {
     const fetchRecipeDetails = async () => {
@@ -27,6 +29,15 @@ function DrinkRecipeDetails() {
     }
   }, [idDrink]);
 
+  useEffect(() => {
+    const inProgressRecipes = JSON.parse(localStorage.getItem('inProgressRecipes'))
+      || { cocktails: {} };
+    if (inProgressRecipes.cocktails[idDrink]) {
+      setShowContinueButton(true);
+      setShowStartButton(false);
+    }
+  }, [idDrink]);
+
   return (
     <section>
       <RecipeHeaderDrinksDetails recipeDetails={ recipeDetails } />
@@ -34,6 +45,7 @@ function DrinkRecipeDetails() {
       <RecipeInstructionsDetails recipeDetails={ recipeDetails } />
       <RecomendationMealsCard />
       {showStartButton && <StartRecipeButton />}
+      {showContinueButton && <ContinueRecipeButton />}
     </section>
   );
 }
