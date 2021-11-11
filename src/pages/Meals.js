@@ -23,7 +23,7 @@ function Meals() {
       setApiMeals(result);
     };
     fetchMeals();
-  }, []);
+  }, [setApiMeals]);
 
   return (
     <div>

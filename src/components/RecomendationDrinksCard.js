@@ -1,7 +1,7 @@
 import React, { useEffect, useContext } from 'react';
 import { Link } from 'react-router-dom';
 import RecipesContext from '../context/RecipesContext';
-import '../styles/carousel.css';
+import '../styles/RecomendationCard.css';
 
 function RecomendationDrinksCard() {
   const { apiDrinks, setApiDrinks } = useContext(RecipesContext);
@@ -14,28 +14,28 @@ function RecomendationDrinksCard() {
       setApiDrinks(result);
     };
     fetchDrinks();
-  }, []);
+  }, [setApiDrinks]);
   return (
-    <div className="flex">
+    <div className="carousel">
       { apiDrinks && apiDrinks
         .map((recipe, index) => {
           if (index < MAX_DRINKS) {
             return (
               <Link
-                className="carousel recipe-card"
+                className="recomendation-card"
                 data-testid={ `${index}-recomendation-card` }
                 to={ `/bebidas/${recipe.idDrink}` }
                 key={ index }
               >
                 <img
-                  className="card-img"
+                  className="recomendation-card-img"
                   data-testid={ `${index}-card-img` }
                   src={ recipe.strDrinkThumb }
                   alt={ recipe.strDrink }
                 />
-                <h5>{ recipe.strCategory }</h5>
+                <h5 className="recomendation-card-category">{ recipe.strCategory }</h5>
                 <h4
-                  className="card-name"
+                  className="recomendation-card-title"
                   data-testid={ `${index}-recomendation-title` }
                 >
                   {recipe.strDrink}

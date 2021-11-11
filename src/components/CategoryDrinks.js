@@ -23,7 +23,7 @@ function CategoryDrinks() {
       setCategoryDrinks(result);
     };
     fetchDrinksCategories();
-  }, []);
+  }, [setCategoryDrinks]);
 
   async function handleClick({ target }) {
     const urlFetch = await fetch(`https://www.thecocktaildb.com/api/json/v1/1/filter.php?c=${target.value}`);

@@ -1,7 +1,7 @@
 import React, { useContext, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import RecipesContext from '../context/RecipesContext';
-import '../styles/carousel.css';
+import '../styles/RecomendationCard.css';
 
 function RecomendationMealsCard() {
   const { apiMeals, setApiMeals } = useContext(RecipesContext);
@@ -14,28 +14,28 @@ function RecomendationMealsCard() {
       setApiMeals(result);
     };
     fetchMeals();
-  }, []);
+  }, [setApiMeals]);
   return (
-    <div className="flex">
+    <div className="carousel">
       { apiMeals && apiMeals
         .map((recipe, index) => {
           if (index < MAX_MEALS) {
             return (
               <Link
-                className="carousel recipe-card"
+                className="recomendation-card"
                 data-testid={ `${index}-recomendation-card` }
                 to={ `/comidas/${recipe.idMeal}` }
                 key={ index }
               >
                 <img
-                  className="card-img"
+                  className="recomendation-card-img"
                   data-testid={ `${index}-card-img` }
                   src={ recipe.strMealThumb }
                   alt={ recipe.strMeal }
                 />
-                <h5>{ recipe.strCategory }</h5>
+                <h5 className="recomendation-card-category">{ recipe.strCategory }</h5>
                 <h4
-                  className="card-name"
+                  className="recomendation-card-title"
                   data-testid={ `${index}-recomendation-title` }
                 >
                   {recipe.strMeal}

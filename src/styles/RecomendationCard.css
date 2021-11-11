@@ -1,10 +1,10 @@
-.recipes-list {
+.carousel {
   display: flex;
-  flex-wrap: wrap;
-  justify-content: space-evenly;
+  flex-wrap: nowrap;
+  overflow-x: scroll;
 }
 
-.recipe-card {
+.recomendation-card {
   border-radius: 5px;
   box-shadow: 0 2px 5px 1px rgb(185, 185, 185);
   display: flex;
@@ -14,20 +14,21 @@
   min-width: 45%;
 }
 
-.recipe-card:last-child {
-  margin-bottom: 90px;
-}
-
-.card-img {
+.recomendation-card-img {
   height: 120px;
   margin-bottom: 5px;
 }
 
-.card-img > img {
+.recomendation-card-img > img {
   position: absolute;
 }
 
-.card-name {
+.recomendation-card-category {
+  font-size: 12px;
+  margin: 7px;
+}
+
+.recomendation-card-title {
   font-size: 15px;
   margin: 0 7px 10px;
 }

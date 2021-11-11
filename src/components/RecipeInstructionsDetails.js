@@ -1,8 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-function RecipeInstructionsDetails({ recipeDetails }) {
-  const { strInstructions } = recipeDetails;
+function RecipeInstructionsDetails({ recipeDetails: { strInstructions } }) {
   return (
     <section>
       <h2>Instructions</h2>
@@ -12,7 +11,7 @@ function RecipeInstructionsDetails({ recipeDetails }) {
 }
 RecipeInstructionsDetails.propTypes = {
   recipeDetails: PropTypes.shape({
-    strInstructions: PropTypes.string.isRequired,
+    strInstructions: PropTypes.string,
   }).isRequired,
 };
 export default RecipeInstructionsDetails;

@@ -1,8 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-function RecipeVideoDetails({ recipeDetails }) {
-  const { strYoutube = '' } = recipeDetails;
+function RecipeVideoDetails({ recipeDetails: { strYoutube = '' } }) {
   const youtubeUrl = strYoutube.replace('watch?v=', 'embed/');
   return (
     <section>
@@ -18,6 +17,8 @@ function RecipeVideoDetails({ recipeDetails }) {
   );
 }
 RecipeVideoDetails.propTypes = {
-  recipeDetails: PropTypes.objectOf().isRequired,
+  recipeDetails: PropTypes.shape({
+    strYoutube: PropTypes.string,
+  }).isRequired,
 };
 export default RecipeVideoDetails;
