@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import { useHistory } from 'react-router';
 import shareIcon from '../images/shareIcon.svg';
@@ -6,17 +6,36 @@ import blackHeartIcon from '../images/blackHeartIcon.svg';
 import whiteHeartIcon from '../images/whiteHeartIcon.svg';
 
 function RecipeHeaderDrinksDetails({ recipeDetails }) {
-  const { strDrinkThumb, strDrink, strAlcoholic, idDrink } = recipeDetails;
+  const { strDrinkThumb,
+    strDrink,
+    strAlcoholic,
+    idDrink,
+    strCategory } = recipeDetails;
   const [showCopyMessage, setShowCopyMessage] = useState(false);
-  const [favorited, setFavorited] = useState(whiteHeartIcon);
+  const [toggleFavorite, setToggleFavorite] = useState();
   const history = useHistory();
   const currentURL = `http://localhost:3000${history.location.pathname}`;
+  const favoriteRecipes = JSON.parse(localStorage.getItem('favoriteRecipes')) || [];
+  const heartColor = favoriteRecipes.some((recipe) => recipe.id === idDrink)
+    ? blackHeartIcon : whiteHeartIcon;
 
-  useEffect(() => {
-    const favoriteRecipes = JSON.parse(localStorage.getItem('favoriteRecipes')) || [];
-    return favoriteRecipes.some((recipe) => recipe.id === idDrink)
-      ? setFavorited(blackHeartIcon) : setFavorited(whiteHeartIcon);
-  }, [idDrink, favorited]);
+  const handleFavorite = () => {
+    if (!(favoriteRecipes.some((recipe) => recipe.id === idDrink))) {
+      localStorage.setItem('favoriteRecipes', JSON.stringify([...favoriteRecipes, {
+        id: idDrink,
+        type: 'bebida',
+        area: '',
+        category: strCategory,
+        name: strDrink,
+        alcoholicOrNot: strAlcoholic,
+        image: strDrinkThumb,
+      }]));
+    } else {
+      localStorage.setItem('favoriteRecipes', JSON.stringify(favoriteRecipes
+        .filter((recipe) => recipe.id !== idDrink)));
+    }
+    setToggleFavorite(!toggleFavorite);
+  };
 
   return (
     <section>
@@ -31,14 +50,19 @@ function RecipeHeaderDrinksDetails({ recipeDetails }) {
         data-testid="share-btn"
         type="button"
         onClick={ () => {
-          navigator.clipboard.writeText(currentURL);
+          window.navigator.clipboard.writeText(currentURL);
           setShowCopyMessage(true);
         } }
       >
         <img src={ shareIcon } alt="share" />
       </button>
-      <button data-testid="favorite-btn" type="button" src={ favorited }>
-        <img src={ favorited } alt="favorite" />
+      <button
+        data-testid="favorite-btn"
+        type="button"
+        src={ heartColor }
+        onClick={ handleFavorite }
+      >
+        <img src={ heartColor } alt="favorite" />
       </button>
       {showCopyMessage && <p>Link copiado!</p>}
       <h2 data-testid="recipe-category">{strAlcoholic}</h2>
@@ -51,6 +75,8 @@ RecipeHeaderDrinksDetails.propTypes = {
     strDrink: PropTypes.string,
     strAlcoholic: PropTypes.string,
     idDrink: PropTypes.string,
+    strArea: PropTypes.string,
+    strCategory: PropTypes.string,
   }).isRequired,
 };
 
