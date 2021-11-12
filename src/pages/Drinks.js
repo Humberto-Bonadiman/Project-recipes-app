@@ -23,7 +23,7 @@ function Drinks() {
       setApiDrinks(result);
     };
     fetchDrinks();
-  }, []);
+  }, [setApiDrinks]);
 
   return (
     <div>

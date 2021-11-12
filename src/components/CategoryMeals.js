@@ -23,7 +23,7 @@ function CategoryMeals() {
       setCategoryMeals(result);
     };
     fetchMealsCategories();
-  }, []);
+  }, [setCategoryMeals]);
 
   async function handleClick({ target }) {
     const urlFetch = await fetch(`https://www.themealdb.com/api/json/v1/1/filter.php?c=${target.value}`);
