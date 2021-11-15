@@ -5,6 +5,13 @@ import Header from '../components/Header';
 
 function ExploreMeals() {
   const history = useHistory();
+
+  async function aleatoryMealFetch() {
+    const urlFetch = await fetch('https://www.themealdb.com/api/json/v1/1/random.php');
+    const response = await urlFetch.json();
+    history.push(`/comidas/${response.meals[0].idMeal}`);
+  }
+
   return (
     <div>
       <Header title="Explorar Comidas" />
@@ -25,6 +32,7 @@ function ExploreMeals() {
       <button
         data-testid="explore-surprise"
         type="button"
+        onClick={ aleatoryMealFetch }
       >
         Me Surpreenda!
       </button>
