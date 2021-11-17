@@ -13,17 +13,22 @@ function Meals() {
     showAll,
     showFilter,
     apiFilterMeals,
+    saveIngredient,
   } = useContext(RecipesContext);
 
   useEffect(() => {
     const fetchMeals = async () => {
-      const urlFetch = await fetch('https://www.themealdb.com/api/json/v1/1/search.php?s=');
+      let url = 'https://www.themealdb.com/api/json/v1/1/search.php?s=';
+      if (saveIngredient !== '') {
+        url = `https://www.themealdb.com/api/json/v1/1/filter.php?i=${saveIngredient}`;
+      }
+      const urlFetch = await fetch(url);
       const response = await urlFetch.json();
       const result = response.meals;
       setApiMeals(result);
     };
     fetchMeals();
-  }, [setApiMeals]);
+  }, [setApiMeals, saveIngredient]);
 
   return (
     <div>

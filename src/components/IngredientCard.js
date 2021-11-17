@@ -1,13 +1,17 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
+import RecipesContext from '../context/RecipesContext';
 
 function IngredientCard({ rota, index, name, urlImage }) {
+  const { setSaveIngredient } = useContext(RecipesContext);
+
   return (
     <Link
       className="recipe-card"
       data-testid={ `${index}-ingredient-card` }
       to={ rota }
+      onClick={ () => setSaveIngredient(name) }
     >
       <img
         className="card-img"
