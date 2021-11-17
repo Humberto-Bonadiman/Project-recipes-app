@@ -14,7 +14,7 @@ function RecipeHeaderDrinksDetails({ recipeDetails }) {
   const [showCopyMessage, setShowCopyMessage] = useState(false);
   const [toggleFavorite, setToggleFavorite] = useState();
   const history = useHistory();
-  const currentURL = `http://localhost:3000${history.location.pathname}`;
+  const currentURL = `http://localhost:3000${history.location.pathname.replace('/in-progress', '')}`;
   const favoriteRecipes = JSON.parse(localStorage.getItem('favoriteRecipes')) || [];
   const heartColor = favoriteRecipes.some((recipe) => recipe.id === idDrink)
     ? blackHeartIcon : whiteHeartIcon;
