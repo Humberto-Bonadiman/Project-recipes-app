@@ -9,6 +9,14 @@ function MealRecipeInProgress() {
   const { idMeal } = useParams();
   const [recipeDetails, setRecipeDetails] = useState({});
 
+  const inProgressRecipes = JSON.parse(localStorage.getItem('inProgressRecipes'))
+    || { cocktails: {}, meals: {} };
+
+  const [ingredientsUsed, setIngredientsUsed] = useState(
+    inProgressRecipes.meals[idMeal]
+      ? inProgressRecipes.meals[idMeal] : [],
+  );
+
   useEffect(() => {
     const fetchRecipeDetails = async () => {
       const response = await fetch(`https://www.themealdb.com/api/json/v1/1/lookup.php?i=${idMeal}`);
@@ -21,9 +29,16 @@ function MealRecipeInProgress() {
   return (
     <section>
       <RecipeHeaderMealsDetails recipeDetails={ recipeDetails } />
-      <IngredientsInProgress recipeDetails={ recipeDetails } />
+      <IngredientsInProgress
+        recipeDetails={ recipeDetails }
+        ingredientsUsed={ ingredientsUsed }
+        setIngredientsUsed={ setIngredientsUsed }
+      />
       <RecipeInstructionsDetails recipeDetails={ recipeDetails } />
-      <FinishRecipeButton />
+      <FinishRecipeButton
+        recipeDetails={ recipeDetails }
+        ingredientsUsed={ ingredientsUsed }
+      />
     </section>
   );
 }

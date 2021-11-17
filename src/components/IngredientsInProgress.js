@@ -1,14 +1,29 @@
 import React from 'react';
-import PropTypes from 'prop-types';
-import '../styles/IngredientsInProgress.css';
 import { useHistory, useParams } from 'react-router';
+import PropTypes from 'prop-types';
 import toggleIngredient from '../services/toggleIngredient';
+import '../styles/IngredientsInProgress.css';
 
-function IngredientsInProgress({ recipeDetails }) {
+function IngredientsInProgress(props) {
+  const { recipeDetails, ingredientsUsed, setIngredientsUsed } = props;
   const history = useHistory();
   const { idMeal, idDrink } = useParams();
-  const ingredients = Object.keys(recipeDetails)
-    .filter((key) => key.includes('strIngredient'));
+
+  const handleChange = ({ target }) => {
+    target.parentElement.classList.toggle('checked');
+    if (history.location.pathname.includes('comidas')) {
+      toggleIngredient('meals', idMeal, target);
+    } else {
+      toggleIngredient('cocktails', idDrink, target);
+    }
+    return ingredientsUsed.includes(target.id)
+      ? setIngredientsUsed(ingredientsUsed.filter((item) => item !== target.id))
+      : setIngredientsUsed([...ingredientsUsed, target.id]);
+  };
+
+  const ingredients = Object.entries(recipeDetails)
+    .filter((entry) => entry[0].includes('strIngredient'))
+    .filter((entry) => entry[1]);
 
   const ingredientAndMeasure = (ingredient, index) => (
     recipeDetails[`strMeasure${index + 1}`]
@@ -16,66 +31,37 @@ function IngredientsInProgress({ recipeDetails }) {
         ${recipeDetails[`strMeasure${index + 1}`]}`
       : recipeDetails[ingredient]);
 
-  const handleChecked = (id) => {
-    const inProgressRecipes = JSON.parse(localStorage.getItem('inProgressRecipes'))
-    || { cocktails: {}, meals: {} };
-    if (history.location.pathname.includes('comidas')) {
-      if (inProgressRecipes.meals[idMeal]) {
-        return inProgressRecipes.meals[idMeal].includes(id);
-      }
-      return false;
-    }
-    if (inProgressRecipes.cocktails[idDrink]) {
-      return inProgressRecipes.cocktails[idDrink].includes(id);
-    }
-    return false;
-  };
+  const handleChecked = (id) => (
+    ingredientsUsed.length > 0
+      ? ingredientsUsed.includes(id.toString())
+      : false
+  );
 
-  const handleChange = ({ target }) => {
-    target.parentElement.classList.toggle('checked');
-    const inProgressRecipes = JSON.parse(localStorage.getItem('inProgressRecipes'))
-    || { cocktails: {}, meals: {} };
-    if (history.location.pathname.includes('comidas')) {
-      if (inProgressRecipes.meals[idMeal]) {
-        toggleIngredient(inProgressRecipes, 'meals', idMeal, target);
-      }
-    } else if (inProgressRecipes.cocktails[idDrink]) {
-      toggleIngredient(inProgressRecipes, 'cocktails', idDrink, target);
-    }
-    if (target.checked) {
-      console.log('if');
-      target.removeAttribute('checked');
-    } else {
-      console.log('else');
-      target.setAttribute('checked', true);
-    }
-  };
-  const NUM_INGREDIENT = 13;
   return (
     <section>
       <h2>Ingredients</h2>
       <ul>
         {ingredients.map((ingredient, index) => {
-          if (recipeDetails[ingredient]) {
+          if (recipeDetails[ingredient[0]]) {
             let classChecked = '';
-            if (handleChecked(ingredient.slice(NUM_INGREDIENT))) {
+            if (handleChecked(index + 1)) {
               classChecked = 'checked';
             }
             return (
               <li key={ index }>
                 <label
                   className={ classChecked }
-                  htmlFor={ ingredient }
+                  htmlFor={ index + 1 }
                   data-testid={ `${index}-ingredient-step` }
                 >
                   <input
                     type="checkbox"
-                    id={ ingredient.slice(NUM_INGREDIENT) }
-                    name={ ingredient }
+                    id={ index + 1 }
+                    name={ ingredient[1] }
                     onChange={ handleChange }
-                    defaultChecked={ handleChecked(ingredient.slice(NUM_INGREDIENT)) }
+                    checked={ handleChecked(index + 1) }
                   />
-                  { ingredientAndMeasure(ingredient, index) }
+                  { ingredientAndMeasure(ingredient[0], index) }
                 </label>
               </li>
             );
@@ -87,7 +73,8 @@ function IngredientsInProgress({ recipeDetails }) {
   );
 }
 IngredientsInProgress.propTypes = {
-  recipeDetails: PropTypes.objectOf(PropTypes.string).isRequired,
-};
+  recipeDetails: PropTypes.objectOf(PropTypes.string),
+  ingredientsUsed: PropTypes.arrayOf(PropTypes.string),
+}.isRequired;
 
 export default IngredientsInProgress;

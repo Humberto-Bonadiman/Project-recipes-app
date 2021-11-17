@@ -9,6 +9,14 @@ function DrinkRecipeInProgress() {
   const { idDrink } = useParams();
   const [recipeDetails, setRecipeDetails] = useState({});
 
+  const inProgressRecipes = JSON.parse(localStorage.getItem('inProgressRecipes'))
+    || { cocktails: {}, meals: {} };
+
+  const [ingredientsUsed, setIngredientsUsed] = useState(
+    inProgressRecipes.cocktails[idDrink]
+      ? inProgressRecipes.cocktails[idDrink] : [],
+  );
+
   useEffect(() => {
     const fetchRecipeDetails = async () => {
       const response = await fetch(`https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=${idDrink}`);
@@ -21,9 +29,16 @@ function DrinkRecipeInProgress() {
   return (
     <section>
       <RecipeHeaderDrinksDetails recipeDetails={ recipeDetails } />
-      <IngredientsInProgress recipeDetails={ recipeDetails } />
+      <IngredientsInProgress
+        recipeDetails={ recipeDetails }
+        ingredientsUsed={ ingredientsUsed }
+        setIngredientsUsed={ setIngredientsUsed }
+      />
       <RecipeInstructionsDetails recipeDetails={ recipeDetails } />
-      <FinishRecipeButton />
+      <FinishRecipeButton
+        recipeDetails={ recipeDetails }
+        ingredientsUsed={ ingredientsUsed }
+      />
     </section>
   );
 }
