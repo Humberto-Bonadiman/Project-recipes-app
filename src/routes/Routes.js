@@ -10,11 +10,12 @@ import MealRecipeInProgress from '../pages/MealRecipeInProgress';
 import DrinkRecipeInProgress from '../pages/DrinkRecipeInProgress';
 import ExploreMeals from '../pages/ExploreMeals';
 import ExploreDrinks from '../pages/ExploreDrinks';
-import ExploreIngredients from '../pages/ExploreIngredients';
 import ExploreOrigin from '../pages/ExploreOrigin';
 import Profile from '../pages/Profile';
 import RecipesMade from '../pages/RecipesMade';
 import FavoritesRecipes from '../pages/FavoritesRecipes';
+import ExploreDrinksByIngredients from '../pages/ExploreDrinksByIngredients';
+import ExploreMealsByIngredients from '../pages/ExploreMealsByIngredients';
 
 function Routes() {
   return (
@@ -40,12 +41,12 @@ function Routes() {
       <Route
         exact
         path="/explorar/comidas/ingredientes"
-        component={ ExploreIngredients }
+        component={ ExploreMealsByIngredients }
       />
       <Route
         exact
         path="/explorar/bebidas/ingredientes"
-        component={ ExploreIngredients }
+        component={ ExploreDrinksByIngredients }
       />
       <Route exact path="/explorar/comidas/area" component={ ExploreOrigin } />
       <Route exact path="/perfil" component={ Profile } />

@@ -13,17 +13,22 @@ function Drinks() {
     apiFilterDrinks,
     showAll,
     showFilter,
+    saveIngredient,
   } = useContext(RecipesContext);
 
   useEffect(() => {
     const fetchDrinks = async () => {
-      const urlFetch = await fetch('https://www.thecocktaildb.com/api/json/v1/1/search.php?s=');
+      let url = 'https://www.thecocktaildb.com/api/json/v1/1/search.php?s=';
+      if (saveIngredient !== '') {
+        url = `https://www.thecocktaildb.com/api/json/v1/1/filter.php?i=${saveIngredient}`;
+      }
+      const urlFetch = await fetch(url);
       const response = await urlFetch.json();
       const result = response.drinks;
       setApiDrinks(result);
     };
     fetchDrinks();
-  }, [setApiDrinks]);
+  }, [setApiDrinks, saveIngredient]);
 
   return (
     <div>
