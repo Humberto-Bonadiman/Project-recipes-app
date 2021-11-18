@@ -12,6 +12,7 @@ function CategoryDrinks() {
     setShowAll,
     filterDrinks,
     setFilterDrinks,
+    setSaveIngredient,
   } = useContext(RecipesContext);
   const MAX_LENGTH = 5;
 
@@ -23,9 +24,10 @@ function CategoryDrinks() {
       setCategoryDrinks(result);
     };
     fetchDrinksCategories();
-  }, []);
+  }, [setCategoryDrinks]);
 
   async function handleClick({ target }) {
+    setSaveIngredient('');
     const urlFetch = await fetch(`https://www.thecocktaildb.com/api/json/v1/1/filter.php?c=${target.value}`);
     const response = await urlFetch.json();
     const result = response.drinks;

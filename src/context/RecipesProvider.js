@@ -13,6 +13,7 @@ export default function Provider({ children }) {
   const [apiFilterDrinks, setApiFilterDrinks] = useState([]);
   const [filterDrinks, setFilterDrinks] = useState('');
   const [filterMeals, setFilterMeals] = useState('');
+  const [saveIngredient, setSaveIngredient] = useState('');
 
   const context = {
     apiMeals,
@@ -35,6 +36,8 @@ export default function Provider({ children }) {
     setFilterDrinks,
     filterMeals,
     setFilterMeals,
+    saveIngredient,
+    setSaveIngredient,
   };
 
   return (

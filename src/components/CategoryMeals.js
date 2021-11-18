@@ -12,6 +12,7 @@ function CategoryMeals() {
     setShowAll,
     filterMeals,
     setFilterMeals,
+    setSaveIngredient,
   } = useContext(RecipesContext);
   const MAX_LENGTH = 5;
 
@@ -23,9 +24,10 @@ function CategoryMeals() {
       setCategoryMeals(result);
     };
     fetchMealsCategories();
-  }, []);
+  }, [setCategoryMeals]);
 
   async function handleClick({ target }) {
+    setSaveIngredient('');
     const urlFetch = await fetch(`https://www.themealdb.com/api/json/v1/1/filter.php?c=${target.value}`);
     const response = await urlFetch.json();
     const result = response.meals;

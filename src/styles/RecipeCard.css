@@ -8,10 +8,10 @@
   border-radius: 5px;
   box-shadow: 0 2px 5px 1px rgb(185, 185, 185);
   display: flex;
-  flex-wrap: wrap;
+  flex-direction: column;
   height: fit-content;
-  margin: 3% 0 0;
-  width: 45%;
+  margin: 2.5%;
+  min-width: 45%;
 }
 
 .recipe-card:last-child {
@@ -20,6 +20,7 @@
 
 .card-img {
   height: 120px;
+  margin-bottom: 5px;
 }
 
 .card-img > img {
@@ -28,5 +29,5 @@
 
 .card-name {
   font-size: 15px;
-  margin: 10px 5px 5px;
+  margin: 0 7px 10px;
 }
