@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
-import { useHistory } from 'react-router';
+import { Link } from 'react-router-dom';
 import shareIcon from '../images/shareIcon.svg';
 
 function RecipesDoneCard({ index, recipe }) {
@@ -10,23 +10,24 @@ function RecipesDoneCard({ index, recipe }) {
     category,
     alcoholicOrNot,
     doneDate,
-    tags,
+    tags = [],
     area,
     id,
     type,
   } = recipe;
   const [showCopyMessage, setShowCopyMessage] = useState((false));
-  const history = useHistory();
-  console.log(history);
   const currentURL = `http://localhost:3000/${type}s/${id}`;
+  const redirectUrl = `/${type}s/${id}`;
   return (
     <div>
-      <img
-        className="card-img"
-        data-testid={ `${index}-horizontal-image` }
-        src={ image }
-        alt={ name }
-      />
+      <Link to={ redirectUrl }>
+        <img
+          className="card-img"
+          data-testid={ `${index}-horizontal-image` }
+          src={ image }
+          alt={ name }
+        />
+      </Link>
       { type === 'comida'
         ? (
           <h4
@@ -44,12 +45,14 @@ function RecipesDoneCard({ index, recipe }) {
             { alcoholicOrNot }
           </h4>
         )}
-      <h4
-        className="card-name"
-        data-testid={ `${index}-horizontal-name` }
-      >
-        { name }
-      </h4>
+      <Link to={ redirectUrl }>
+        <h4
+          className="card-name"
+          data-testid={ `${index}-horizontal-name` }
+        >
+          { name }
+        </h4>
+      </Link>
       <h4
         className="card-name"
         data-testid={ `${index}-horizontal-done-date` }
@@ -88,7 +91,7 @@ RecipesDoneCard.propTypes = {
     category: PropTypes.string.isRequired,
     alcoholicOrNot: PropTypes.string,
     doneDate: PropTypes.string.isRequired,
-    tags: PropTypes.string,
+    tags: PropTypes.arrayOf(PropTypes.string),
     area: PropTypes.string,
     id: PropTypes.string.isRequired,
     type: PropTypes.string.isRequired,
@@ -98,7 +101,7 @@ RecipesDoneCard.propTypes = {
 RecipesDoneCard.defaultProps = {
   recipe: {
     alcoholicOrNot: '',
-    tags: '',
+    tags: [],
     area: '',
   },
 };

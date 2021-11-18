@@ -12,7 +12,7 @@ function FinishRecipeButton({ recipeDetails, ingredientsUsed }) {
     strArea,
     strCategory,
     strMealThumb,
-    strTags,
+    strTags = '',
     idDrink,
     strDrink,
     strDrinkThumb,
@@ -22,6 +22,11 @@ function FinishRecipeButton({ recipeDetails, ingredientsUsed }) {
   let id = '';
   let name = '';
   let image = '';
+  const tags = () => {
+    if (!strTags) return [];
+    if (strTags.includes(',')) return strTags.split(',');
+    return [strTags];
+  };
   if (type === 'comida') {
     id = idMeal;
     name = strMeal;
@@ -33,7 +38,8 @@ function FinishRecipeButton({ recipeDetails, ingredientsUsed }) {
   }
   const newDate = new Date();
   const thisDay = newDate.getDate();
-  const thisMonth = newDate.getMonth();
+  const ONE = 1;
+  const thisMonth = newDate.getMonth() + ONE;
   const thisYear = newDate.getFullYear();
   const thisDate = `${thisDay}/${thisMonth}/${thisYear}`;
   const recipeInfo = {
@@ -45,7 +51,7 @@ function FinishRecipeButton({ recipeDetails, ingredientsUsed }) {
     name,
     image,
     doneDate: thisDate,
-    tags: strTags.split(',') || [],
+    tags: tags(),
   };
 
   const handleClick = () => {
