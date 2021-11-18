@@ -1,7 +1,24 @@
-import React from 'react';
+import React, { useState } from 'react';
+import PropTypes from 'prop-types';
+import { useHistory } from 'react-router';
+import shareIcon from '../images/shareIcon.svg';
 
 function RecipesDoneCard({ index, recipe }) {
-  const { name, image, category, alcoholicOrNot, doneDate, tags, area } = recipe;
+  const {
+    name,
+    image,
+    category,
+    alcoholicOrNot,
+    doneDate,
+    tags,
+    area,
+    id,
+    type,
+  } = recipe;
+  const [showCopyMessage, setShowCopyMessage] = useState((false));
+  const history = useHistory();
+  console.log(history);
+  const currentURL = `http://localhost:3000/${type}s/${id}`;
   return (
     <div>
       <img
@@ -10,12 +27,23 @@ function RecipesDoneCard({ index, recipe }) {
         src={ image }
         alt={ name }
       />
-      <h4
-        className="card-name"
-        data-testid={ `${index}-horizontal-top-text` }
-      >
-        { category }
-      </h4>
+      { type === 'comida'
+        ? (
+          <h4
+            className="card-name"
+            data-testid={ `${index}-horizontal-top-text` }
+          >
+            { `${area} - ${category}` }
+          </h4>
+        )
+        : (
+          <h4
+            className="card-name"
+            data-testid={ `${index}-horizontal-top-text` }
+          >
+            { alcoholicOrNot }
+          </h4>
+        )}
       <h4
         className="card-name"
         data-testid={ `${index}-horizontal-name` }
@@ -31,6 +59,7 @@ function RecipesDoneCard({ index, recipe }) {
       <button
         data-testid={ `${index}-horizontal-share-btn` }
         type="button"
+        src={ shareIcon }
         onClick={ () => {
           window.navigator.clipboard.writeText(currentURL);
           setShowCopyMessage(true);
@@ -38,11 +67,40 @@ function RecipesDoneCard({ index, recipe }) {
       >
         <img src={ shareIcon } alt="share" />
       </button>
-      <span
-        data-testid={ `${index}-${tagName}-horizontal-tag` }
-      />
+      {showCopyMessage && <p>Link copiado!</p>}
+      { tags.map((tag) => (
+        <span
+          key={ tag }
+          data-testid={ `${index}-${tag}-horizontal-tag` }
+        >
+          { tag }
+        </span>
+      ))}
     </div>
   );
 }
+
+RecipesDoneCard.propTypes = {
+  index: PropTypes.number.isRequired,
+  recipe: PropTypes.shape({
+    name: PropTypes.string.isRequired,
+    image: PropTypes.string.isRequired,
+    category: PropTypes.string.isRequired,
+    alcoholicOrNot: PropTypes.string,
+    doneDate: PropTypes.string.isRequired,
+    tags: PropTypes.string,
+    area: PropTypes.string,
+    id: PropTypes.string.isRequired,
+    type: PropTypes.string.isRequired,
+  }),
+};
+
+RecipesDoneCard.defaultProps = {
+  recipe: {
+    alcoholicOrNot: '',
+    tags: '',
+    area: '',
+  },
+};
 
 export default RecipesDoneCard;
