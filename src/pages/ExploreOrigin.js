@@ -6,6 +6,7 @@ function ExploreOrigin() {
   return (
     <div>
       <Header title="Explorar Origem" showButton />
+      a
       <Footer />
     </div>
   );
