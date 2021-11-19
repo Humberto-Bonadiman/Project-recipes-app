@@ -15,8 +15,8 @@ import Profile from '../pages/Profile';
 import RecipesMade from '../pages/RecipesMade';
 import FavoritesRecipes from '../pages/FavoritesRecipes';
 import ExploreDrinksByIngredients from '../pages/ExploreDrinksByIngredients';
-import ExploreMealsByIngredients from '../pages/ExploreMealsByIngredients';
 import NotFound from '../pages/NotFound';
+import ExploreMealsByIngredients from '../pages/ExploreMealsByIngredients';
 
 function Routes() {
   return (
