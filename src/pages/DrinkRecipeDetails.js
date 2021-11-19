@@ -6,6 +6,7 @@ import RecomendationMealsCard from '../components/RecomendationMealsCard';
 import StartRecipeButton from '../components/StartRecipeButton';
 import RecipeHeaderDrinksDetails from '../components/RecipeHeaderDrinksDetails';
 import ContinueRecipeButton from '../components/ContinueRecipeButton';
+import '../styles/RecipeDetails.css';
 
 function DrinkRecipeDetails() {
   const { idDrink } = useParams();

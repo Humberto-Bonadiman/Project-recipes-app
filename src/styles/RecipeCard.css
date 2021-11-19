@@ -1,3 +1,7 @@
+.body-background {
+  background-color: rgb(255, 231, 211, 0.6)
+}
+
 .recipes-list {
   display: flex;
   flex-wrap: wrap;
@@ -5,6 +9,7 @@
 }
 
 .recipe-card {
+  background-color: rgb(47, 79, 79, 0.8);
   border-radius: 5px;
   box-shadow: 0 2px 5px 1px rgb(185, 185, 185);
   display: flex;
@@ -12,6 +17,8 @@
   height: fit-content;
   margin: 2.5%;
   min-width: 45%;
+  padding: 5px;
+  color: white;
 }
 
 .recipe-card:last-child {

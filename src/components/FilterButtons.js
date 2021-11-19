@@ -1,10 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import '../styles/FilterButtons.css';
 
 function FilterButtons({ setShowAll, setShowMeals, setShowDrinks }) {
   return (
     <div>
       <button
+        className="filter-btn"
         type="button"
         data-testid="filter-by-all-btn"
         onClick={ () => {

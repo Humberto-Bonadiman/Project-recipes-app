@@ -7,6 +7,7 @@ import RecomendationDrinksCard from '../components/RecomendationDrinksCard';
 import RecipeVideoDetails from '../components/RecipeVideoDetails';
 import StartRecipeButton from '../components/StartRecipeButton';
 import ContinueRecipeButton from '../components/ContinueRecipeButton';
+import '../styles/RecipeDetails.css';
 
 function MealRecipeDetails() {
   const { idMeal } = useParams();

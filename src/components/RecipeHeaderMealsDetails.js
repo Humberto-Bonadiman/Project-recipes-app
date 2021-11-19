@@ -34,7 +34,7 @@ function RecipeHeaderMealsDetails({ recipeDetails }) {
   };
 
   return (
-    <section>
+    <section className="recipe-details-header">
       <img
         data-testid="recipe-photo"
         alt={ strMeal }
