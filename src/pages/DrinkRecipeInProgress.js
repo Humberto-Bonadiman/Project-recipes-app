@@ -27,7 +27,7 @@ function DrinkRecipeInProgress() {
   }, [idDrink]);
 
   return (
-    <section>
+    <section className="page-details">
       <RecipeHeaderDrinksDetails recipeDetails={ recipeDetails } />
       <IngredientsInProgress
         recipeDetails={ recipeDetails }

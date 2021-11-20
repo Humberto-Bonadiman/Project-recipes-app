@@ -40,7 +40,7 @@ function DrinkRecipeDetails() {
   }, [idDrink]);
 
   return (
-    <section>
+    <section className="page-details">
       <RecipeHeaderDrinksDetails recipeDetails={ recipeDetails } />
       <RecipeIngredientDetails recipeDetails={ recipeDetails } />
       <RecipeInstructionsDetails recipeDetails={ recipeDetails } />

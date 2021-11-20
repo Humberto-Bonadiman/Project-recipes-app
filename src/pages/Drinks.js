@@ -31,7 +31,7 @@ function Drinks() {
   }, [setApiDrinks, saveIngredient]);
 
   return (
-    <div>
+    <div className="body-background">
       <Header title="Bebidas" showButton />
       <CategoryDrinks />
       <main className="recipes-list">

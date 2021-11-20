@@ -46,8 +46,9 @@ function CategoryDrinks() {
   }
 
   return (
-    <div>
+    <div className="btn-container">
       <button
+        className="filter-btn-drinks"
         type="button"
         data-testid="All-category-filter"
         onClick={ () => {
@@ -61,6 +62,7 @@ function CategoryDrinks() {
         if (index < MAX_LENGTH) {
           return (
             <button
+              className="filter-btn-drinks"
               type="button"
               key={ index }
               data-testid={ `${category.strCategory}-category-filter` }

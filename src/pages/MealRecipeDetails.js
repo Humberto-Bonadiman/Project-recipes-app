@@ -41,7 +41,7 @@ function MealRecipeDetails() {
   }, [idMeal]);
 
   return (
-    <section>
+    <section className="page-details">
       <RecipeHeaderMealsDetails recipeDetails={ recipeDetails } />
       <RecipeIngredientDetails recipeDetails={ recipeDetails } />
       <RecipeInstructionsDetails recipeDetails={ recipeDetails } />

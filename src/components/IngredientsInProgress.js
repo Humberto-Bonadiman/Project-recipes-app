@@ -38,9 +38,9 @@ function IngredientsInProgress(props) {
   );
 
   return (
-    <section>
-      <h2>Ingredients</h2>
-      <ul>
+    <section className="details-containers">
+      <h2 className="recipe-subtitle">Ingredients</h2>
+      <ul className="ingredients-list">
         {ingredients.map((ingredient, index) => {
           if (recipeDetails[ingredient[0]]) {
             let classChecked = '';
