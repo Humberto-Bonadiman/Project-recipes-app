@@ -1,13 +1,9 @@
 .footer {
-  background-color: rgb(210, 115, 70);
+  background-color: rgb(180, 100, 60);
   bottom: 0;
   display: flex;
   justify-content: space-between;
   padding: 10px;
   position: fixed;
   width: 360px;
-}
-
-.icon-btn {
-  border: none;
 }

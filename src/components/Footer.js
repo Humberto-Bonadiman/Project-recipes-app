@@ -14,6 +14,7 @@ function Footer() {
           className="icon-btn"
         >
           <img
+            className="icon-btn-img"
             data-testid="drinks-bottom-btn"
             src={ drinkIcon }
             alt="Ícone do perfil"
@@ -26,6 +27,7 @@ function Footer() {
           className="icon-btn"
         >
           <img
+            className="icon-btn-img"
             data-testid="explore-bottom-btn"
             src={ exploreIcon }
             alt="Ícone do perfil"
@@ -38,6 +40,7 @@ function Footer() {
           className="icon-btn"
         >
           <img
+            className="icon-btn-img"
             data-testid="food-bottom-btn"
             src={ mealIcon }
             alt="Ícone do perfil"

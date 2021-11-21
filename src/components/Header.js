@@ -18,6 +18,7 @@ function Header({ title, showButton }) {
             className="icon-btn"
           >
             <img
+              className="icon-btn-img"
               data-testid="profile-top-btn"
               src={ profileIcon }
               alt="Ícone do perfil"
@@ -33,6 +34,7 @@ function Header({ title, showButton }) {
               onClick={ () => setShowSearchBar(!showSearchBar) }
             >
               <img
+                className="icon-btn-img"
                 data-testid="search-top-btn"
                 src={ searchIcon }
                 alt="Ícone de pesquisa"
