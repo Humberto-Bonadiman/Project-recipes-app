@@ -1,35 +1,5 @@
-/* import React from 'react';
-import { screen } from '@testing-library/react';
-import renderWithRouter from './RenderWithRouter';
-import About from '../components/About';
-
-describe('2 - Teste o componente <About.js />', () => {
-  test('Teste se a página contém um heading h2 com o texto About Pokédex', () => {
-    renderWithRouter(<About />);
-    const title = screen.getByRole('heading', { level: 2, name: 'About Pokédex' });
-    expect(title).toBeInTheDocument();
-  });
-
-  // Fonte getByText: https://testing-library.com/docs/queries/about#textmatch
-  test('Teste se a página contém dois parágrafos com texto sobre a Pokédex', () => {
-    renderWithRouter(<About />);
-    const checkOne = screen.getByText((content, element) => element.tagName.toLowerCase()
-      === 'p' && content.startsWith('This'));
-    expect(checkOne).toBeInTheDocument();
-    const checkTwo = screen.getByText((content, element) => element.tagName.toLowerCase()
-      === 'p' && content.startsWith('One'));
-    expect(checkTwo).toBeInTheDocument();
-  });
-
-  test('Teste se a página contém a imagem de uma Pokédex', () => {
-    renderWithRouter(<About />);
-    const srcImage = 'https://cdn2.bulbagarden.net/upload/thumb/8/86/Gen_I_Pok%C3%A9dex.png/800px-Gen_I_Pok%C3%A9dex.png';
-    const pokedexImg = screen.getByRole('img');
-    expect(pokedexImg).toHaveAttribute('src', srcImage);
-  });
-});
- */
 import React from 'react';
+// import userEvent from '@testing-library/user-event';
 import { screen, fireEvent } from '@testing-library/react';
 import renderWithRouter from './renderWithRouter';
 import Login from '../pages/Login';
@@ -122,5 +92,41 @@ de 6 caracteres serem preenchidos`, () => {
     fireEvent.change(inputEmail, { target: { value: VALID_EMAIL } });
     fireEvent.change(inputPassword, { target: { value: VALID_PASSWORD } });
     expect(button).toBeEnabled();
+  });
+});
+
+describe(`6 - Salve 2 tokens no localStorage após a submissão, identificados pelas
+chaves mealsToken e cocktailsToken`, () => {
+  test(`Após a submissão mealsToken e cocktailsToken devem estar salvos
+  em localStorage`, async () => {
+    renderWithRouter(<Login />);
+    const inputEmail = screen.getByTestId(/email-input/i);
+    const inputPassword = screen.getByTestId(/password-input/i);
+    const buttonLogin = screen.getByTestId(/login-submit-btn/i);
+    expect(buttonLogin).toBeInTheDocument();
+    expect(buttonLogin).toBeDisabled();
+
+    fireEvent.change(inputEmail, { target: { value: VALID_EMAIL } });
+    fireEvent.change(inputPassword, { target: { value: VALID_PASSWORD } });
+    expect(buttonLogin).toBeEnabled();
+    // fireEvent.click(buttonLogin);
+    // userEvent.click(buttonLogin);
+    /* expect(localStorage.getItem('mealsToken')).toBe('1');
+    expect(localStorage.getItem('cocktailsToken')).toBe('1');
+    expect(JSON.parse(localStorage.getItem('user')))
+      .toStrictEqual({ email: VALID_EMAIL }); */
+  });
+});
+
+describe(`7 - Salve o e-mail da pessoa usuária no localStorage na chave user
+após a submissão`, () => {
+  test('Após a submissão a chave user deve estar salva em localStorage', () => {
+    renderWithRouter(<Login />);
+    const inputEmail = screen.getByTestId(/email-input/i);
+    const inputPassword = screen.getByTestId(/password-input/i);
+
+    fireEvent.change(inputEmail, { target: { value: VALID_EMAIL } });
+    fireEvent.change(inputPassword, { target: { value: VALID_PASSWORD } });
+    fireEvent.click(screen.getByTestId('login-submit-btn'));
   });
 });
