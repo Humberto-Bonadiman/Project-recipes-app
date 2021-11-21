@@ -19,19 +19,21 @@ function ExploreMealsByIngredients() {
   }, []);
 
   return (
-    <div>
+    <div className="body-background">
       <Header title="Explorar Ingredientes" />
-      {mealsIngredient.map((ingr, index) => {
-        const urlImage = `https://www.themealdb.com/images/ingredients/${ingr.strIngredient}-Small.png`;
-        return (
-          <IngredientCard
-            rota="/comidas"
-            key={ index }
-            index={ index }
-            urlImage={ urlImage }
-            name={ ingr.strIngredient }
-          />);
-      })}
+      <section className="recipes-list">
+        {mealsIngredient.map((ingr, index) => {
+          const urlImage = `https://www.themealdb.com/images/ingredients/${ingr.strIngredient}-Small.png`;
+          return (
+            <IngredientCard
+              rota="/comidas"
+              key={ index }
+              index={ index }
+              urlImage={ urlImage }
+              name={ ingr.strIngredient }
+            />);
+        })}
+      </section>
       <Footer />
     </div>
   );

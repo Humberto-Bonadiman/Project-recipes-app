@@ -19,19 +19,21 @@ function ExploreDrinksByIngredients() {
   }, []);
 
   return (
-    <div>
+    <div className="body-background">
       <Header title="Explorar Ingredientes" />
-      {drinksIngredient.map((ingr, index) => {
-        const urlImage = `https://www.thecocktaildb.com/images/ingredients/${ingr.strIngredient1}-Small.png`;
-        return (
-          <IngredientCard
-            rota="/bebidas"
-            key={ index }
-            index={ index }
-            urlImage={ urlImage }
-            name={ ingr.strIngredient1 }
-          />);
-      })}
+      <section className="recipes-list">
+        {drinksIngredient.map((ingr, index) => {
+          const urlImage = `https://www.thecocktaildb.com/images/ingredients/${ingr.strIngredient1}-Small.png`;
+          return (
+            <IngredientCard
+              rota="/bebidas"
+              key={ index }
+              index={ index }
+              urlImage={ urlImage }
+              name={ ingr.strIngredient1 }
+            />);
+        })}
+      </section>
       <Footer />
     </div>
   );
