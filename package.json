@@ -16,10 +16,10 @@
     "react": "^16.13.1",
     "react-alert": "^7.0.3",
     "react-bootstrap": "^1.6.4",
-    "react-icons": "^4.3.1",
     "react-dom": "^16.13.1",
-    "react-multi-carousel": "^2.6.5",
+    "react-icons": "^4.3.1",
     "react-logger": "^1.1.0",
+    "react-multi-carousel": "^2.6.5",
     "react-router-dom": "^5.1.2",
     "react-scripts": "3.4.1",
     "react-testing-library": "^8.0.1",
@@ -52,6 +52,7 @@
     ]
   },
   "devDependencies": {
+    "@testing-library/dom": "^8.11.1",
     "clipboardy": "^2.1.0",
     "cypress": "^9.0.0",
     "cypress-multi-reporters": "^1.4.0",

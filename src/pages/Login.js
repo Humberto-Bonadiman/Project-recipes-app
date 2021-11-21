@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
-import PropTypes from 'prop-types';
 import '../styles/Login.css';
+import { Link } from 'react-router-dom';
 
-function Login({ history }) {
+function Login() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
@@ -15,7 +15,6 @@ function Login({ history }) {
     localStorage.setItem('mealsToken', JSON.stringify(1));
     localStorage.setItem('cocktailsToken', JSON.stringify(1));
     localStorage.setItem('user', JSON.stringify({ email }));
-    history.push('/comidas');
   };
 
   const MIN_LENGTH = 7;
@@ -35,23 +34,19 @@ function Login({ history }) {
         className="password-input"
         onChange={ (e) => setPassword(e.target.value) }
       />
-      <button
-        type="button"
-        data-testid="login-submit-btn"
-        className="login-submit-btn"
-        onClick={ handleClick }
-        disabled={ !(isEmailValid(email) && password.length >= MIN_LENGTH) }
-      >
-        Entrar
-      </button>
+      <Link to="/comidas">
+        <button
+          type="button"
+          data-testid="login-submit-btn"
+          className="login-submit-btn"
+          onClick={ handleClick }
+          disabled={ !(isEmailValid(email) && password.length >= MIN_LENGTH) }
+        >
+          Entrar
+        </button>
+      </Link>
     </form>
   );
 }
-
-Login.propTypes = {
-  history: PropTypes.shape({
-    push: PropTypes.func.isRequired,
-  }).isRequired,
-};
 
 export default Login;

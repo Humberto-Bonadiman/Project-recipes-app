@@ -1,5 +1,5 @@
 import React from 'react';
-// import userEvent from '@testing-library/user-event';
+import userEvent from '@testing-library/user-event';
 import { screen, fireEvent } from '@testing-library/react';
 import renderWithRouter from './renderWithRouter';
 import Login from '../pages/Login';
@@ -109,12 +109,9 @@ chaves mealsToken e cocktailsToken`, () => {
     fireEvent.change(inputEmail, { target: { value: VALID_EMAIL } });
     fireEvent.change(inputPassword, { target: { value: VALID_PASSWORD } });
     expect(buttonLogin).toBeEnabled();
-    // fireEvent.click(buttonLogin);
-    // userEvent.click(buttonLogin);
-    /* expect(localStorage.getItem('mealsToken')).toBe('1');
+    fireEvent.click(buttonLogin);
+    expect(localStorage.getItem('mealsToken')).toBe('1');
     expect(localStorage.getItem('cocktailsToken')).toBe('1');
-    expect(JSON.parse(localStorage.getItem('user')))
-      .toStrictEqual({ email: VALID_EMAIL }); */
   });
 });
 
@@ -128,5 +125,22 @@ após a submissão`, () => {
     fireEvent.change(inputEmail, { target: { value: VALID_EMAIL } });
     fireEvent.change(inputPassword, { target: { value: VALID_PASSWORD } });
     fireEvent.click(screen.getByTestId('login-submit-btn'));
+    expect(JSON.parse(localStorage.getItem('user')))
+      .toStrictEqual({ email: VALID_EMAIL });
+  });
+});
+
+describe(`8 - Redirecione a pessoa usuária para a tela principal de receitas de
+comidas após a submissão e validação com sucesso do login`, () => {
+  it('A rota muda para a tela principal de receitas de comidas', () => {
+    const { history } = renderWithRouter(<Login />);
+    const inputEmail = screen.getByTestId(/email-input/i);
+    const inputPassword = screen.getByTestId(/password-input/i);
+
+    fireEvent.change(inputEmail, { target: { value: VALID_EMAIL } });
+    fireEvent.change(inputPassword, { target: { value: VALID_PASSWORD } });
+    userEvent.click(screen.getByTestId('login-submit-btn'));
+    const { pathname } = history.location;
+    expect(pathname).toBe('/comidas');
   });
 });
