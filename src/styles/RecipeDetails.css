@@ -1,5 +1,6 @@
 .page-details {
   background-color: rgba(255, 220, 190, 0.85);
+  padding-bottom: 1px;
 }
 
 .recipe-details-header {
@@ -47,7 +48,7 @@
 }
 
 .share-btn, .favorite-btn {
-  background-color: rgba(255, 220, 190, 0.85);
+  background-color: rgba(255, 220, 190, 0.4);
   border: none;
 }
 
