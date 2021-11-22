@@ -1,6 +1,7 @@
 .carousel {
   display: flex;
   flex-wrap: nowrap;
+  margin-bottom: 45px;
   overflow-x: scroll;
 }
 
@@ -13,9 +14,8 @@
   flex-direction: column;
   height: fit-content;
   letter-spacing: 1px;
-  margin: 2.5%;
-  margin-bottom: 60px;
-  min-width: 45%;
+  margin: 0 4% 4% 1%;
+  min-width: 46%;
   padding: 3px;
   position: relative;
   top: 0;

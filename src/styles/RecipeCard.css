@@ -19,11 +19,11 @@
   flex-direction: column;
   height: fit-content;
   letter-spacing: 1px;
-  margin: 2.5%;
+  margin: 3.5% 0 0;
   padding: 3px;
   position: relative;
   top: 0;
-  width: 45%;
+  width: 46%;
 }
 
 .recipe-card:last-child {

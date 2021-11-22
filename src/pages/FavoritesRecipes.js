@@ -10,42 +10,44 @@ function FavoritesRecipes() {
   const [toggleFavorite, setToggleFavorite] = useState();
   const favoriteRecipes = JSON.parse(localStorage.getItem('favoriteRecipes')) || [];
   return (
-    <div>
+    <div className="body-background">
       <Header title="Receitas Favoritas" />
       <FilterButtons
         setShowAll={ setShowAll }
         setShowMeals={ setShowMeals }
         setShowDrinks={ setShowDrinks }
       />
-      {showAll && favoriteRecipes.map((recipe, index) => (
-        <RecipesFavoriteCard
-          key={ index }
-          recipe={ recipe }
-          index={ index }
-          setToggleFavorite={ setToggleFavorite }
-          toggleFavorite={ toggleFavorite }
-        />
-      ))}
-      {showMeals && favoriteRecipes
-        .filter(({ type }) => type === 'comida').map((recipeMeal, index) => (
+      <section className="recipes-list">
+        {showAll && favoriteRecipes.map((recipe, index) => (
           <RecipesFavoriteCard
             key={ index }
-            recipe={ recipeMeal }
+            recipe={ recipe }
             index={ index }
             setToggleFavorite={ setToggleFavorite }
             toggleFavorite={ toggleFavorite }
           />
         ))}
-      {showDrinks && favoriteRecipes
-        .filter(({ type }) => type === 'bebida').map((recipeDrink, index) => (
-          <RecipesFavoriteCard
-            key={ index }
-            recipe={ recipeDrink }
-            index={ index }
-            setToggleFavorite={ setToggleFavorite }
-            toggleFavorite={ toggleFavorite }
-          />
-        ))}
+        {showMeals && favoriteRecipes
+          .filter(({ type }) => type === 'comida').map((recipeMeal, index) => (
+            <RecipesFavoriteCard
+              key={ index }
+              recipe={ recipeMeal }
+              index={ index }
+              setToggleFavorite={ setToggleFavorite }
+              toggleFavorite={ toggleFavorite }
+            />
+          ))}
+        {showDrinks && favoriteRecipes
+          .filter(({ type }) => type === 'bebida').map((recipeDrink, index) => (
+            <RecipesFavoriteCard
+              key={ index }
+              recipe={ recipeDrink }
+              index={ index }
+              setToggleFavorite={ setToggleFavorite }
+              toggleFavorite={ toggleFavorite }
+            />
+          ))}
+      </section>
     </div>
   );
 }

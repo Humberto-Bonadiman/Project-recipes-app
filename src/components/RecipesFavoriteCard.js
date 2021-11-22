@@ -26,8 +26,8 @@ function RecipesFavoriteCard({ index, recipe, setToggleFavorite, toggleFavorite 
   };
 
   return (
-    <div>
-      <Link to={ redirectUrl }>
+    <div className="recipe-horizontal-card">
+      <Link className="card-left-side" to={ redirectUrl }>
         <img
           className="card-img"
           data-testid={ `${index}-horizontal-image` }
@@ -35,51 +35,57 @@ function RecipesFavoriteCard({ index, recipe, setToggleFavorite, toggleFavorite 
           alt={ name }
         />
       </Link>
-      { type === 'comida'
-        ? (
+      <div className="card-right-side">
+        { type === 'comida'
+          ? (
+            <h4
+              className="card-category"
+              data-testid={ `${index}-horizontal-top-text` }
+            >
+              { `${area} - ${category}` }
+            </h4>
+          )
+          : (
+            <h4
+              className="card-category"
+              data-testid={ `${index}-horizontal-top-text` }
+            >
+              { alcoholicOrNot }
+            </h4>
+          )}
+        <Link to={ redirectUrl }>
           <h4
-            className="card-name"
-            data-testid={ `${index}-horizontal-top-text` }
+            className="card-name-horizontal"
+            data-testid={ `${index}-horizontal-name` }
           >
-            { `${area} - ${category}` }
+            { name }
           </h4>
-        )
-        : (
-          <h4
-            className="card-name"
-            data-testid={ `${index}-horizontal-top-text` }
+        </Link>
+        <div className="btns-horizontal">
+          <button
+            className="share-btn-horizontal"
+            data-testid={ `${index}-horizontal-share-btn` }
+            type="button"
+            src={ shareIcon }
+            onClick={ () => {
+              window.navigator.clipboard.writeText(currentURL);
+              setShowCopyMessage(true);
+            } }
           >
-            { alcoholicOrNot }
-          </h4>
-        )}
-      <Link to={ redirectUrl }>
-        <h4
-          className="card-name"
-          data-testid={ `${index}-horizontal-name` }
-        >
-          { name }
-        </h4>
-      </Link>
-      <button
-        data-testid={ `${index}-horizontal-share-btn` }
-        type="button"
-        src={ shareIcon }
-        onClick={ () => {
-          window.navigator.clipboard.writeText(currentURL);
-          setShowCopyMessage(true);
-        } }
-      >
-        <img src={ shareIcon } alt="share" />
-      </button>
-      <button
-        data-testid={ `${index}-horizontal-favorite-btn` }
-        type="button"
-        src={ blackHeartIcon }
-        onClick={ handleFavorite }
-      >
-        <img src={ blackHeartIcon } alt="favorite" />
-      </button>
-      {showCopyMessage && <p>Link copiado!</p>}
+            <img src={ shareIcon } alt="share" />
+          </button>
+          <button
+            className="favorite-btn-horizontal"
+            data-testid={ `${index}-horizontal-favorite-btn` }
+            type="button"
+            src={ blackHeartIcon }
+            onClick={ handleFavorite }
+          >
+            <img src={ blackHeartIcon } alt="favorite" />
+          </button>
+        </div>
+        {showCopyMessage && <p>Link copiado!</p>}
+      </div>
     </div>
   );
 }

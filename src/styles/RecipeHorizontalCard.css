@@ -4,10 +4,10 @@
   box-shadow: 0 3px 5px 1px rgb(165, 165, 165);
   color: white;
   display: flex;
-  height: 150px;
+  height: 155px;
   justify-content: space-around;
   letter-spacing: 0.5px;
-  margin: 2.5%;
+  margin: 2.5% 2.5% 0;
   padding: 5px;
   position: relative;
   top: 0;
@@ -40,6 +40,7 @@
   align-items: center;
   display: flex;
   justify-content: space-between;
+  margin-bottom: -5px;
 }
 
 .card-category {
@@ -60,8 +61,9 @@
 
 .card-name-horizontal {
   color: white;
-  font-size: 18px;
+  font-size: 20px;
   font-weight: 600;
+  margin: 5px 0 10px;
 }
 
 .card-date {
@@ -74,4 +76,20 @@
   font-size: 13px;
   margin-right: 3px;
   padding: 3px 6px;
+}
+
+.favorite-btn-horizontal {
+  background-color: rgb(116, 165, 162);
+  border: none;
+}
+
+.favorite-btn-horizontal img {
+  filter: invert(100%) sepia(100%) saturate(0%)
+    hue-rotate(156deg) brightness(105%) contrast(103%);
+}
+
+.btns-horizontal {
+  display: flex;
+  justify-content: space-evenly;
+  padding: 2px;
 }

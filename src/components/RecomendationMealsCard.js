@@ -16,36 +16,39 @@ function RecomendationMealsCard() {
     fetchMeals();
   }, [setApiMeals]);
   return (
-    <div className="carousel">
-      { apiMeals && apiMeals
-        .map((recipe, index) => {
-          if (index < MAX_MEALS) {
-            return (
-              <Link
-                className="recomendation-card"
-                data-testid={ `${index}-recomendation-card` }
-                to={ `/comidas/${recipe.idMeal}` }
-                key={ index }
-              >
-                <img
-                  className="recomendation-card-img"
-                  data-testid={ `${index}-card-img` }
-                  src={ recipe.strMealThumb }
-                  alt={ recipe.strMeal }
-                />
-                <h5 className="recomendation-card-category">{ recipe.strCategory }</h5>
-                <h4
-                  className="recomendation-card-title"
-                  data-testid={ `${index}-recomendation-title` }
+    <section className="details-containers">
+      <h2 className="recipe-subtitle">Recommended</h2>
+      <div className="carousel">
+        { apiMeals && apiMeals
+          .map((recipe, index) => {
+            if (index < MAX_MEALS) {
+              return (
+                <Link
+                  className="recomendation-card"
+                  data-testid={ `${index}-recomendation-card` }
+                  to={ `/comidas/${recipe.idMeal}` }
+                  key={ index }
                 >
-                  {recipe.strMeal}
-                </h4>
-              </Link>
-            );
-          }
-          return null;
-        })}
-    </div>
+                  <img
+                    className="recomendation-card-img"
+                    data-testid={ `${index}-card-img` }
+                    src={ recipe.strMealThumb }
+                    alt={ recipe.strMeal }
+                  />
+                  <h5 className="recomendation-card-category">{ recipe.strCategory }</h5>
+                  <h4
+                    className="recomendation-card-title"
+                    data-testid={ `${index}-recomendation-title` }
+                  >
+                    {recipe.strMeal}
+                  </h4>
+                </Link>
+              );
+            }
+            return null;
+          })}
+      </div>
+    </section>
   );
 }
 
