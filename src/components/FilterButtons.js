@@ -4,7 +4,7 @@ import '../styles/FilterButtons.css';
 
 function FilterButtons({ setShowAll, setShowMeals, setShowDrinks }) {
   return (
-    <div>
+    <div className="btn-container">
       <button
         className="filter-btn"
         type="button"
@@ -18,6 +18,7 @@ function FilterButtons({ setShowAll, setShowMeals, setShowDrinks }) {
         All
       </button>
       <button
+        className="filter-btn"
         type="button"
         data-testid="filter-by-food-btn"
         onClick={ () => {
@@ -29,6 +30,7 @@ function FilterButtons({ setShowAll, setShowMeals, setShowDrinks }) {
         Food
       </button>
       <button
+        className="filter-btn"
         type="button"
         data-testid="filter-by-drink-btn"
         onClick={ () => {

@@ -1,6 +1,7 @@
 .body-background {
   background-color: rgb(255, 220, 190, 0.85);
   height: 100%;
+  min-height: 100vh;
 }
 
 .recipes-list {
