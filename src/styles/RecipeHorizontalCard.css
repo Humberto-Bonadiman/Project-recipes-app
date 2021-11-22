@@ -22,6 +22,10 @@
   transition: all 0.2s ease-in-out;
 }
 
+.recipe-horizontal-card:last-child {
+  margin-bottom: 20px;
+}
+
 .card-left-side {
   width: 45%;
 }

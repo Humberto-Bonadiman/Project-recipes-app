@@ -75,15 +75,20 @@ function RecipesDoneCard({ index, recipe }) {
         >
           { `Feita em: ${doneDate}` }
         </h4>
-        { tags.map((tag) => (
-          <span
-            className="tag"
-            key={ tag }
-            data-testid={ `${index}-${tag}-horizontal-tag` }
-          >
-            { tag }
-          </span>
-        ))}
+        { tags.map((tag, tagIndex) => {
+          if (tagIndex < 2) {
+            return (
+              <span
+                className="tag"
+                key={ tag }
+                data-testid={ `${index}-${tag}-horizontal-tag` }
+              >
+                { tag }
+              </span>
+            );
+          }
+          return null;
+        })}
       </div>
     </div>
   );
