@@ -21,7 +21,6 @@ import ExploreMealsByIngredients from '../pages/ExploreMealsByIngredients';
 function Routes() {
   return (
     <Switch>
-      <Route exact path="/" component={ Login } />
       <Route exact path="/comidas" component={ Meals } />
       <Route exact path="/bebidas" component={ Drinks } />
       <Route exact path="/comidas/:idMeal" component={ MealRecipeDetails } />
@@ -53,6 +52,7 @@ function Routes() {
       <Route exact path="/perfil" component={ Profile } />
       <Route exact path="/receitas-feitas" component={ RecipesMade } />
       <Route exact path="/receitas-favoritas" component={ FavoritesRecipes } />
+      <Route path="/" component={ Login } />
       <Route component={ NotFound } />
     </Switch>
   );

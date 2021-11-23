@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
+import { useHistory } from 'react-router';
 import '../styles/Login.css';
-import { Link } from 'react-router-dom';
 
 function Login() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const history = useHistory();
 
   const isEmailValid = (userEmail) => {
     const regexEmail = /^[\w-.]+@([\w-]+\.)+[\w-]{2,4}$/;
@@ -15,6 +16,7 @@ function Login() {
     localStorage.setItem('mealsToken', JSON.stringify(1));
     localStorage.setItem('cocktailsToken', JSON.stringify(1));
     localStorage.setItem('user', JSON.stringify({ email }));
+    history.push('/comidas');
   };
 
   const MIN_LENGTH = 7;
@@ -34,17 +36,15 @@ function Login() {
         className="password-input"
         onChange={ (e) => setPassword(e.target.value) }
       />
-      <Link to="/comidas">
-        <button
-          type="button"
-          data-testid="login-submit-btn"
-          className="login-submit-btn"
-          onClick={ handleClick }
-          disabled={ !(isEmailValid(email) && password.length >= MIN_LENGTH) }
-        >
-          Entrar
-        </button>
-      </Link>
+      <button
+        type="button"
+        data-testid="login-submit-btn"
+        className="login-submit-btn"
+        onClick={ handleClick }
+        disabled={ !(isEmailValid(email) && password.length >= MIN_LENGTH) }
+      >
+        Entrar
+      </button>
     </form>
   );
 }
