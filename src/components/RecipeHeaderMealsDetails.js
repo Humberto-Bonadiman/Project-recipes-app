@@ -33,6 +33,7 @@ function RecipeHeaderMealsDetails({ recipeDetails }) {
     setToggleFavorite(!toggleFavorite);
   };
 
+  const ONE_SECOND = 1000;
   return (
     <section className="recipe-details-header">
       <img
@@ -65,6 +66,7 @@ function RecipeHeaderMealsDetails({ recipeDetails }) {
             onClick={ () => {
               window.navigator.clipboard.writeText(currentURL);
               setShowCopyMessage(true);
+              setTimeout(() => setShowCopyMessage(false), ONE_SECOND);
             } }
           >
             <img src={ shareIcon } alt="share" />
@@ -78,7 +80,7 @@ function RecipeHeaderMealsDetails({ recipeDetails }) {
           >
             <img src={ heartColor } alt="favorite" />
           </button>
-          {showCopyMessage && <p>Link copiado!</p>}
+          {showCopyMessage && <div>Link copiado!</div>}
         </div>
       </div>
     </section>

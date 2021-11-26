@@ -37,6 +37,7 @@ function RecipeHeaderDrinksDetails({ recipeDetails }) {
     setToggleFavorite(!toggleFavorite);
   };
 
+  const ONE_SECOND = 1000;
   return (
     <section className="recipe-details-header">
       <img
@@ -69,6 +70,7 @@ function RecipeHeaderDrinksDetails({ recipeDetails }) {
             onClick={ () => {
               window.navigator.clipboard.writeText(currentURL);
               setShowCopyMessage(true);
+              setTimeout(() => setShowCopyMessage(false), ONE_SECOND);
             } }
           >
             <img src={ shareIcon } alt="share" />
@@ -82,7 +84,7 @@ function RecipeHeaderDrinksDetails({ recipeDetails }) {
           >
             <img src={ heartColor } alt="favorite" />
           </button>
-          {showCopyMessage && <p>Link copiado!</p>}
+          {showCopyMessage && <div>Link copiado!</div>}
         </div>
       </div>
     </section>

@@ -8,6 +8,7 @@
   width: 360px;
 }
 
+/* rgb(180, 100, 60) */
 .icon-btn {
   background-color: rgb(180, 100, 60);
   border: none;
@@ -31,10 +32,11 @@
 
 .page-title {
   color: white;
-  font-size: 27px;
-  font-weight: 500;
-  letter-spacing: 0.5px;
+  font-family: Gurajada , serif;
+  font-size: 45px;
   margin: auto;
+  position: relative;
+  top: -6px;
 }
 
 .search-bar {

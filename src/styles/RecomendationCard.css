@@ -3,6 +3,7 @@
   flex-wrap: nowrap;
   margin-bottom: 45px;
   overflow-x: scroll;
+  padding-top: 4px;
 }
 
 .recomendation-card {
