@@ -1,7 +1,7 @@
 import React from 'react';
 import ContentLoader from 'react-content-loader';
 
-function LoadingMealDetails() {
+function LoadingDrinkDetails() {
   return (
     <ContentLoader
       speed={ 2 }
@@ -17,9 +17,17 @@ function LoadingMealDetails() {
       <rect x="255" y="220" rx="13" ry="13" width="32" height="26" />
       <rect x="300" y="220" rx="13" ry="13" width="32" height="26" />
       <rect x="18" y="325" rx="10" ry="10" width="120" height="20" />
-      <rect x="18" y="356" rx="10" ry="10" width="324" height="250" />
+      <rect x="18" y="356" rx="10" ry="10" width="324" height="100" />
+      <rect x="18" y="480" rx="10" ry="10" width="120" height="20" />
+      <rect x="18" y="510" rx="10" ry="10" width="324" height="100" />
     </ContentLoader>
   );
 }
 
-export default LoadingMealDetails;
+export default LoadingDrinkDetails;
+
+/*
+Referências para criação dos Loaders:
+https://skeletonreact.com/#gallery
+https://www.npmjs.com/package/react-content-loader
+*/

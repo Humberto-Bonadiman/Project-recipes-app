@@ -46,14 +46,18 @@
 .btns-container {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-around;
-  margin-right: 2px;
-  width: 95px;
+  justify-content: flex-end;
+  margin: 3px 2px 0 0;
+  width: 150px;
 }
 
 .share-btn, .favorite-btn {
   background-color: rgba(255, 220, 190, 0.4);
   border: none;
+}
+
+.favorite-btn {
+  margin-left: 6px;
 }
 
 .share-btn:focus, .favorite-btn:focus {

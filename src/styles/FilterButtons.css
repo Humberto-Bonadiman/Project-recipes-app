@@ -22,12 +22,6 @@
   width: 31%;
 }
 
-.filter-btn:hover {
-  box-shadow: 0 5px 5px rgb(165, 165, 165);
-  top: -2px;
-  transition: all 0.2s ease-in-out;
-}
-
 .filter-btn-drinks {
   background-color: darkslategray;
   border-radius: 10px;
@@ -40,10 +34,4 @@
   padding: 2px;
   position: relative;
   width: 48%;
-}
-
-.filter-btn-drinks:hover {
-  box-shadow: 0 5px 5px rgb(165, 165, 165);
-  top: -2px;
-  transition: all 0.2s ease-in-out;
 }

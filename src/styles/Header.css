@@ -1,6 +1,6 @@
 .header {
   align-items: center;
-  background-color: rgb(180, 100, 60);
+  background-color: rgb(177, 98, 80);
   display: flex;
   height: 60px;
   justify-content: space-between;
@@ -8,9 +8,8 @@
   width: 360px;
 }
 
-/* rgb(180, 100, 60) */
 .icon-btn {
-  background-color: rgb(180, 100, 60);
+  background-color: rgb(177, 98, 80);
   border: none;
   padding: 7px;
 }

@@ -25,6 +25,7 @@ function RecipesFavoriteCard({ index, recipe, setToggleFavorite, toggleFavorite 
     setToggleFavorite(!toggleFavorite);
   };
 
+  const ONE_SECOND = 1000;
   return (
     <div className="recipe-horizontal-card">
       <Link className="card-left-side" to={ redirectUrl }>
@@ -70,6 +71,7 @@ function RecipesFavoriteCard({ index, recipe, setToggleFavorite, toggleFavorite 
             onClick={ () => {
               window.navigator.clipboard.writeText(currentURL);
               setShowCopyMessage(true);
+              setTimeout(() => setShowCopyMessage(false), ONE_SECOND);
             } }
           >
             <img src={ shareIcon } alt="share" />
@@ -84,7 +86,7 @@ function RecipesFavoriteCard({ index, recipe, setToggleFavorite, toggleFavorite 
             <img src={ blackHeartIcon } alt="favorite" />
           </button>
         </div>
-        {showCopyMessage && <p>Link copiado!</p>}
+        {showCopyMessage && <div>Link copiado!</div>}
       </div>
     </div>
   );

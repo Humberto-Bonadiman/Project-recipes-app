@@ -1,5 +1,6 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { useParams } from 'react-router';
+import RecipesContext from '../context/RecipesContext';
 import RecipeHeaderMealsDetails from '../components/RecipeHeaderMealsDetails';
 import RecipeIngredientDetails from '../components/RecipeIngredientDetails';
 import RecipeInstructionsDetails from '../components/RecipeInstructionsDetails';
@@ -7,8 +8,7 @@ import RecomendationDrinksCard from '../components/RecomendationDrinksCard';
 import RecipeVideoDetails from '../components/RecipeVideoDetails';
 import StartRecipeButton from '../components/StartRecipeButton';
 import ContinueRecipeButton from '../components/ContinueRecipeButton';
-import RecipesContext from '../context/RecipesContext';
-import LoadingMealDetails from '../components/LoadingMealDetails';
+import LoadingMealDetails from '../components/loaders/LoadingMealDetails';
 import '../styles/RecipeDetails.css';
 
 function MealRecipeDetails() {

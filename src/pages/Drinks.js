@@ -1,10 +1,10 @@
 import React, { useContext, useEffect } from 'react';
+import RecipesContext from '../context/RecipesContext';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
-import RecipesContext from '../context/RecipesContext';
 import CategoryDrinks from '../components/CategoryDrinks';
 import RenderDrinksCards from '../components/RenderDrinksCards';
-import LoadingDrink from '../components/LoadingDrink';
+import LoadingDrink from '../components/loaders/LoadingDrink';
 import '../styles/RecipeCard.css';
 
 function Drinks() {

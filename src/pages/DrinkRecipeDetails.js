@@ -7,7 +7,7 @@ import StartRecipeButton from '../components/StartRecipeButton';
 import RecipeHeaderDrinksDetails from '../components/RecipeHeaderDrinksDetails';
 import ContinueRecipeButton from '../components/ContinueRecipeButton';
 import RecipesContext from '../context/RecipesContext';
-import LoadingDrinkDetails from '../components/LoadingDrinkDetails';
+import LoadingDrinkDetails from '../components/loaders/LoadingDrinkDetails';
 import '../styles/RecipeDetails.css';
 
 function DrinkRecipeDetails() {

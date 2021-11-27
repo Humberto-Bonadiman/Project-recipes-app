@@ -18,6 +18,7 @@ function RecipesDoneCard({ index, recipe }) {
   const [showCopyMessage, setShowCopyMessage] = useState((false));
   const currentURL = `http://localhost:3000/${type}s/${id}`;
   const redirectUrl = `/${type}s/${id}`;
+  const ONE_SECOND = 1000;
   return (
     <div className="recipe-horizontal-card">
       <Link className="card-left-side" to={ redirectUrl }>
@@ -55,12 +56,12 @@ function RecipesDoneCard({ index, recipe }) {
             onClick={ () => {
               window.navigator.clipboard.writeText(currentURL);
               setShowCopyMessage(true);
+              setTimeout(() => setShowCopyMessage(false), ONE_SECOND);
             } }
           >
             <img src={ shareIcon } alt="share" />
           </button>
         </div>
-        {showCopyMessage && <p>Link copiado!</p>}
         <Link to={ redirectUrl }>
           <h4
             className="card-name-horizontal"
@@ -89,6 +90,7 @@ function RecipesDoneCard({ index, recipe }) {
           }
           return null;
         })}
+        {showCopyMessage && <div>Link copiado!</div>}
       </div>
     </div>
   );

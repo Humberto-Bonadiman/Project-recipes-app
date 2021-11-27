@@ -5,6 +5,7 @@
 }
 
 .recipes-list {
+  background-color: rgba(255, 220, 190, 0.85);
   display: flex;
   flex-wrap: wrap;
   justify-content: space-evenly;
@@ -31,11 +32,8 @@
 }
 
 .recipe-card:hover {
-  box-shadow: 0 6px 5px 3px rgb(165, 165, 165);
   color: white;
   text-decoration: none;
-  top: -4px;
-  transition: all 0.2s ease-in-out;
 }
 
 .card-img {

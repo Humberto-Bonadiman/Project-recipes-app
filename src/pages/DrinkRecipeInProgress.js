@@ -4,8 +4,8 @@ import FinishRecipeButton from '../components/FinishRecipeButton';
 import IngredientsInProgress from '../components/IngredientsInProgress';
 import RecipeHeaderDrinksDetails from '../components/RecipeHeaderDrinksDetails';
 import RecipeInstructionsDetails from '../components/RecipeInstructionsDetails';
+import LoadingDrinkDetails from '../components/loaders/LoadingDrinkDetails';
 import RecipesContext from '../context/RecipesContext';
-import LoadingDrinkDetails from '../components/LoadingDrinkDetails';
 
 function DrinkRecipeInProgress() {
   const { idDrink } = useParams();

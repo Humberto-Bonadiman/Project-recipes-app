@@ -15,11 +15,8 @@
 }
 
 .recipe-horizontal-card:hover {
-  box-shadow: 0 6px 5px 3px rgb(165, 165, 165);
   color: white;
   text-decoration: none;
-  top: -4px;
-  transition: all 0.2s ease-in-out;
 }
 
 .recipe-horizontal-card:last-child {
@@ -96,4 +93,8 @@
   display: flex;
   justify-content: space-evenly;
   padding: 2px;
+}
+
+.share-btn-horizontal:focus, .favorite-btn-horizontal:focus {
+  outline: none;
 }

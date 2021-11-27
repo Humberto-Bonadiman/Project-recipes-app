@@ -1,11 +1,11 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { useParams } from 'react-router';
+import RecipesContext from '../context/RecipesContext';
 import FinishRecipeButton from '../components/FinishRecipeButton';
 import IngredientsInProgress from '../components/IngredientsInProgress';
-import LoadingMealDetails from '../components/LoadingMealDetails';
+import LoadingMealDetails from '../components/loaders/LoadingMealDetails';
 import RecipeHeaderMealsDetails from '../components/RecipeHeaderMealsDetails';
 import RecipeInstructionsDetails from '../components/RecipeInstructionsDetails';
-import RecipesContext from '../context/RecipesContext';
 
 function MealRecipeInProgress() {
   const { idMeal } = useParams();

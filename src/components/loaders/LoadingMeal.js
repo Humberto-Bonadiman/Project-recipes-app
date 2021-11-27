@@ -29,3 +29,9 @@ function LoadingMeal() {
 }
 
 export default LoadingMeal;
+
+/*
+Referências para criação dos Loaders:
+https://skeletonreact.com/#gallery
+https://www.npmjs.com/package/react-content-loader
+*/

@@ -2,7 +2,7 @@ import React, { useContext, useEffect, useState } from 'react';
 import Footer from '../components/Footer';
 import Header from '../components/Header';
 import IngredientCard from '../components/IngredientCard';
-import LoadingIngredients from '../components/LoadingIngredients';
+import LoadingIngredients from '../components/loaders/LoadingIngredients';
 import RecipesContext from '../context/RecipesContext';
 
 function ExploreMealsByIngredients() {
