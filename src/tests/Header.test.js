@@ -185,3 +185,5 @@ busca deve aparecer. O mesmo serve para escondê-la`, () => {
     expect(screen.queryByTestId(/search-input/i)).not.toBeInTheDocument();
   });
 });
+
+/* Testes */
