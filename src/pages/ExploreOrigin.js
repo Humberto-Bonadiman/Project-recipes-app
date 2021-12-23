@@ -18,9 +18,6 @@ function ExploreOrigin() {
         const data = await response.json();
         setFilterOrigin(data.meals);
       }
-      // const fetchUrl = originSelected === 'All'
-      //   ? 'https://www.themealdb.com/api/json/v1/1/search.php?s='
-      //   : `https://www.themealdb.com/api/json/v1/1/filter.php?c=${originSelected}`;
     };
     fetchData();
   }, [originSelected]);
@@ -35,38 +32,41 @@ function ExploreOrigin() {
 
   const MAX_LENGTH = 12;
   return (
-    <div>
+    <div className="body-background">
       <Header title="Explorar Origem" showButton />
-      <select
-        data-testid="explore-by-area-dropdown"
-        onChange={ (event) => setOriginSelected(event.target.value) }
-      >
-        <option
-          value="All"
-          data-testid="All-option"
+      <div className="explore-origin">
+        <select
+          className="explore-by-area-dropdown"
+          data-testid="explore-by-area-dropdown"
+          onChange={ (event) => setOriginSelected(event.target.value) }
         >
-          All
-        </option>
-        {originList.map((origin) => (
           <option
-            data-testid={ `${origin.strArea}-option` }
-            key={ origin.strArea }
-            value={ origin.strArea }
+            value="All"
+            data-testid="All-option"
           >
-            {origin.strArea}
+            All
           </option>
-        ))}
-      </select>
-      <section>
-        {filterOrigin.map((meal, index) => {
-          if (index < MAX_LENGTH) {
-            return (
-              <MealRecipeCard key={ meal.idMeal } recipe={ meal } index={ index } />
-            );
-          }
-          return null;
-        })}
-      </section>
+          {originList.map((origin) => (
+            <option
+              data-testid={ `${origin.strArea}-option` }
+              key={ origin.strArea }
+              value={ origin.strArea }
+            >
+              {origin.strArea}
+            </option>
+          ))}
+        </select>
+        <section className="recipes-list">
+          {filterOrigin.map((meal, index) => {
+            if (index < MAX_LENGTH) {
+              return (
+                <MealRecipeCard key={ meal.idMeal } recipe={ meal } index={ index } />
+              );
+            }
+            return null;
+          })}
+        </section>
+      </div>
       <Footer />
     </div>
   );

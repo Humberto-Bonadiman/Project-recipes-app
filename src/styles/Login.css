@@ -1,27 +1,39 @@
+.logo {
+  padding: 15% 10%;
+  width: 100%;
+}
+
 .login-form {
   display: flex;
   flex-direction: column;
   height: 140px;
   justify-content: space-between;
-  margin: 50% 10%;
+  margin: 0 10%;
 }
 
 .email-input, .password-input {
+  background-color: rgba(255, 220, 190, 0.8);
+  border-color: orange;
   border-radius: 18px;
+  border-style: none;
+  color: darkslategray;
   height: 36px;
   padding-left: 15px;
 }
 
 .login-submit-btn {
-  background-color: rgb(24, 163, 255);
+  background-color: darkslategray;
   border-radius: 22px;
+  border-style: none;
   color: white;
+  font-size: 18px;
   font-weight: 700;
+  letter-spacing: 0.5px;
   margin-top: 10px;
-  padding: 9px;
+  padding: 8px;
 }
 
 .login-submit-btn:disabled {
-  background-color: rgba(0, 153, 255, 0.5);
-  color: rgba(0, 0, 0, 0.5);
+  background-color: rgba(92, 156, 156, 0.5);
+  color: rgba(0, 0, 0, 0.2);
 }

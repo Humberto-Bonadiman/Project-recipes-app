@@ -1,0 +1,37 @@
+.btn-container {
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  height: fit-content;
+  justify-content: space-evenly;
+  margin-top: 2px;
+  padding: 2px;
+}
+
+.filter-btn {
+  background-color: darkslategray;
+  border-radius: 10px;
+  box-shadow: 0 3px 5px rgb(165, 165, 165);
+  color: whitesmoke;
+  font-size: 15px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  margin: 4px 0;
+  padding: 3px;
+  position: relative;
+  width: 31%;
+}
+
+.filter-btn-drinks {
+  background-color: darkslategray;
+  border-radius: 10px;
+  box-shadow: 0 3px 5px rgb(165, 165, 165);
+  color: whitesmoke;
+  font-size: 15px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  margin: 4px 0;
+  padding: 2px;
+  position: relative;
+  width: 48%;
+}

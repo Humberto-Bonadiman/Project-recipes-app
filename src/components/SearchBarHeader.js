@@ -47,8 +47,9 @@ function SearchBarHeader() {
         name={ searchInput }
       />
       <div className="search-radios">
-        <label className="ingredient-radio" htmlFor="ingredient">
+        <label className="radio-label" htmlFor="ingredient">
           <input
+            className="radio"
             id="ingredient"
             type="radio"
             name={ searchType }
@@ -58,8 +59,9 @@ function SearchBarHeader() {
           />
           Ingrediente
         </label>
-        <label className="name-radio" htmlFor="name">
+        <label className="radio-label" htmlFor="name">
           <input
+            className="radio"
             id="name"
             type="radio"
             name={ searchType }
@@ -69,8 +71,9 @@ function SearchBarHeader() {
           />
           Nome
         </label>
-        <label className="first-letter-radio" htmlFor="first-letter">
+        <label className="radio-label" htmlFor="first-letter">
           <input
+            className="radio"
             id="first-letter"
             type="radio"
             name={ searchType }
@@ -85,6 +88,7 @@ function SearchBarHeader() {
         type="button"
         data-testid="exec-search-btn"
         onClick={ handleClick }
+        className="search-btn"
       >
         Buscar
       </button>

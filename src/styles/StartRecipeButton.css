@@ -1,4 +1,29 @@
 .start-recipe-btn {
+  background-color: darkslategray;
+  border-radius: 5px;
   bottom: 0;
+  box-shadow: 0 3px 5px rgb(165, 165, 165);
+  color: whitesmoke;
+  font-size: 18px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  padding: 7px;
   position: fixed;
+  width: 360px;
+}
+
+.finish-recipe-btn {
+  background-color: darkslategray;
+  border-radius: 5px;
+  color: whitesmoke;
+  font-size: 20px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  padding: 8px;
+  width: 360px;
+}
+
+.finish-recipe-btn:disabled {
+  background-color: rgba(47, 79, 79, 0.6);
+  color: rgba(0, 0, 0, 0.5);
 }

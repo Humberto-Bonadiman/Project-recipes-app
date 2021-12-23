@@ -13,29 +13,34 @@ function ExploreMeals() {
   }
 
   return (
-    <div>
+    <div className="body-background">
       <Header title="Explorar Comidas" />
-      <button
-        data-testid="explore-by-ingredient"
-        type="button"
-        onClick={ () => history.push('/explorar/comidas/ingredientes') }
-      >
-        Por Ingredientes
-      </button>
-      <button
-        data-testid="explore-by-area"
-        type="button"
-        onClick={ () => history.push('/explorar/comidas/area') }
-      >
-        Por Local de Origem
-      </button>
-      <button
-        data-testid="explore-surprise"
-        type="button"
-        onClick={ aleatoryMealFetch }
-      >
-        Me Surpreenda!
-      </button>
+      <div className="explore">
+        <button
+          className="explore-btn"
+          data-testid="explore-by-ingredient"
+          type="button"
+          onClick={ () => history.push('/explorar/comidas/ingredientes') }
+        >
+          Por Ingredientes
+        </button>
+        <button
+          className="explore-btn"
+          data-testid="explore-by-area"
+          type="button"
+          onClick={ () => history.push('/explorar/comidas/area') }
+        >
+          Por Local de Origem
+        </button>
+        <button
+          className="explore-btn"
+          data-testid="explore-surprise"
+          type="button"
+          onClick={ aleatoryMealFetch }
+        >
+          Me Surpreenda!
+        </button>
+      </div>
       <Footer />
     </div>
   );

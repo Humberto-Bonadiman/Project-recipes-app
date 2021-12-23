@@ -13,22 +13,26 @@ function ExploreDrinks() {
   }
 
   return (
-    <div>
+    <div className="body-background">
       <Header title="Explorar Bebidas" />
-      <button
-        data-testid="explore-by-ingredient"
-        type="button"
-        onClick={ () => history.push('/explorar/bebidas/ingredientes') }
-      >
-        Por Ingredientes
-      </button>
-      <button
-        data-testid="explore-surprise"
-        type="button"
-        onClick={ aleatoryDrinkFetch }
-      >
-        Me Surpreenda!
-      </button>
+      <div className="explore">
+        <button
+          className="explore-btn"
+          data-testid="explore-by-ingredient"
+          type="button"
+          onClick={ () => history.push('/explorar/bebidas/ingredientes') }
+        >
+          Por Ingredientes
+        </button>
+        <button
+          className="explore-btn"
+          data-testid="explore-surprise"
+          type="button"
+          onClick={ aleatoryDrinkFetch }
+        >
+          Me Surpreenda!
+        </button>
+      </div>
       <Footer />
     </div>
   );

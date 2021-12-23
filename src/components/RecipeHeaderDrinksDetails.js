@@ -37,35 +37,56 @@ function RecipeHeaderDrinksDetails({ recipeDetails }) {
     setToggleFavorite(!toggleFavorite);
   };
 
+  const ONE_SECOND = 1000;
   return (
-    <section>
+    <section className="recipe-details-header">
       <img
+        className="recipe-photo"
         data-testid="recipe-photo"
         alt={ strDrink }
         src={ strDrinkThumb }
         width="100%"
       />
-      <h1 data-testid="recipe-title">{strDrink}</h1>
-      <button
-        data-testid="share-btn"
-        type="button"
-        onClick={ () => {
-          window.navigator.clipboard.writeText(currentURL);
-          setShowCopyMessage(true);
-        } }
-      >
-        <img src={ shareIcon } alt="share" />
-      </button>
-      <button
-        data-testid="favorite-btn"
-        type="button"
-        src={ heartColor }
-        onClick={ handleFavorite }
-      >
-        <img src={ heartColor } alt="favorite" />
-      </button>
-      {showCopyMessage && <p>Link copiado!</p>}
-      <h2 data-testid="recipe-category">{strAlcoholic}</h2>
+      <div className="details-header">
+        <div className="title-container">
+          <h1
+            className="recipe-title"
+            data-testid="recipe-title"
+          >
+            {strDrink}
+          </h1>
+          <h2
+            className="recipe-category"
+            data-testid="recipe-category"
+          >
+            {strAlcoholic}
+          </h2>
+        </div>
+        <div className="btns-container">
+          <button
+            className="share-btn"
+            data-testid="share-btn"
+            type="button"
+            onClick={ () => {
+              window.navigator.clipboard.writeText(currentURL);
+              setShowCopyMessage(true);
+              setTimeout(() => setShowCopyMessage(false), ONE_SECOND);
+            } }
+          >
+            <img src={ shareIcon } alt="share" />
+          </button>
+          <button
+            className="favorite-btn"
+            data-testid="favorite-btn"
+            type="button"
+            src={ heartColor }
+            onClick={ handleFavorite }
+          >
+            <img src={ heartColor } alt="favorite" />
+          </button>
+          {showCopyMessage && <div>Link copiado!</div>}
+        </div>
+      </div>
     </section>
   );
 }

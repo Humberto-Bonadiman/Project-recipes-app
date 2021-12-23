@@ -1,0 +1,25 @@
+.profile {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  justify-content: flex-start;
+  padding: 15px;
+}
+
+.profile-email {
+  font-size: 20px;
+  font-weight: 600;
+  margin: 25px 0;
+  text-align: center;
+}
+
+.profile-btn {
+  background-color: darkslategray;
+  border-radius: 10px;
+  color: whitesmoke;
+  font-size: 18px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  margin: 6px;
+  padding: 7px;
+}

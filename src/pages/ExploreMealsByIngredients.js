@@ -1,12 +1,16 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import Footer from '../components/Footer';
 import Header from '../components/Header';
 import IngredientCard from '../components/IngredientCard';
+import LoadingIngredients from '../components/loaders/LoadingIngredients';
+import RecipesContext from '../context/RecipesContext';
 
 function ExploreMealsByIngredients() {
   const [mealsIngredient, setMealsIngredient] = useState([]);
+  const { loading, setLoading } = useContext(RecipesContext);
 
   useEffect(() => {
+    setLoading(true);
     const fetchMeals = async () => {
       const MAX_LENGTH = 12;
       const MIN_LENGTH = 0;
@@ -14,25 +18,34 @@ function ExploreMealsByIngredients() {
       const response = await urlFetch.json();
       const result = response.meals;
       setMealsIngredient(result.slice(MIN_LENGTH, MAX_LENGTH));
+      setLoading(false);
     };
     fetchMeals();
-  }, []);
+  }, [setLoading]);
 
   return (
     <div>
-      <Header title="Explorar Ingredientes" />
-      {mealsIngredient.map((ingr, index) => {
-        const urlImage = `https://www.themealdb.com/images/ingredients/${ingr.strIngredient}-Small.png`;
-        return (
-          <IngredientCard
-            rota="/comidas"
-            key={ index }
-            index={ index }
-            urlImage={ urlImage }
-            name={ ingr.strIngredient }
-          />);
-      })}
-      <Footer />
+      { loading
+        ? <LoadingIngredients />
+        : (
+          <div className="body-background">
+            <Header title="Explorar Ingredientes" />
+            <section className="recipes-list">
+              {mealsIngredient.map((ingr, index) => {
+                const urlImage = `https://www.themealdb.com/images/ingredients/${ingr.strIngredient}-Small.png`;
+                return (
+                  <IngredientCard
+                    rota="/comidas"
+                    key={ index }
+                    index={ index }
+                    urlImage={ urlImage }
+                    name={ ingr.strIngredient }
+                  />);
+              })}
+            </section>
+            <Footer />
+          </div>
+        )}
     </div>
   );
 }
