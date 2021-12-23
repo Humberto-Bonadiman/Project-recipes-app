@@ -4,8 +4,8 @@ import PropTypes from 'prop-types';
 function RecipeVideoDetails({ recipeDetails: { strYoutube = '' } }) {
   const youtubeUrl = strYoutube.replace('watch?v=', 'embed/');
   return (
-    <section>
-      <h2>Video</h2>
+    <section className="details-containers">
+      <h2 className="recipe-subtitle">Video</h2>
       <iframe
         data-testid="video"
         src={ youtubeUrl }

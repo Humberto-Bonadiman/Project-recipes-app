@@ -1,5 +1,6 @@
 import React, { useEffect, useContext } from 'react';
 import RecipesContext from '../context/RecipesContext';
+import '../styles/FilterButtons.css';
 
 function CategoryMeals() {
   const {
@@ -46,8 +47,9 @@ function CategoryMeals() {
   }
 
   return (
-    <div>
+    <div className="btn-container">
       <button
+        className="filter-btn"
         type="button"
         data-testid="All-category-filter"
         onClick={ () => {
@@ -61,6 +63,7 @@ function CategoryMeals() {
         if (index < MAX_LENGTH) {
           return (
             <button
+              className="filter-btn"
               type="button"
               key={ index }
               data-testid={ `${category.strCategory}-category-filter` }

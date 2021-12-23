@@ -17,45 +17,54 @@ import FavoritesRecipes from '../pages/FavoritesRecipes';
 import ExploreDrinksByIngredients from '../pages/ExploreDrinksByIngredients';
 import NotFound from '../pages/NotFound';
 import ExploreMealsByIngredients from '../pages/ExploreMealsByIngredients';
+import ScrollToTop from '../services/ScrollToTop';
 
 function Routes() {
   return (
-    <Switch>
-      <Route exact path="/" component={ Login } />
-      <Route exact path="/comidas" component={ Meals } />
-      <Route exact path="/bebidas" component={ Drinks } />
-      <Route exact path="/comidas/:idMeal" component={ MealRecipeDetails } />
-      <Route exact path="/bebidas/:idDrink" component={ DrinkRecipeDetails } />
-      <Route
-        exact
-        path="/comidas/:idMeal/in-progress"
-        component={ MealRecipeInProgress }
-      />
-      <Route
-        exact
-        path="/bebidas/:idDrink/in-progress"
-        component={ DrinkRecipeInProgress }
-      />
-      <Route exact path="/explorar" component={ Explore } />
-      <Route exact path="/explorar/comidas" component={ ExploreMeals } />
-      <Route exact path="/explorar/bebidas" component={ ExploreDrinks } />
-      <Route
-        exact
-        path="/explorar/comidas/ingredientes"
-        component={ ExploreMealsByIngredients }
-      />
-      <Route
-        exact
-        path="/explorar/bebidas/ingredientes"
-        component={ ExploreDrinksByIngredients }
-      />
-      <Route exact path="/explorar/comidas/area" component={ ExploreOrigin } />
-      <Route exact path="/perfil" component={ Profile } />
-      <Route exact path="/receitas-feitas" component={ RecipesMade } />
-      <Route exact path="/receitas-favoritas" component={ FavoritesRecipes } />
-      <Route component={ NotFound } />
-    </Switch>
+    <>
+      <ScrollToTop />
+      <Switch>
+        <Route exact path="/" component={ Login } />
+        <Route exact path="/comidas" component={ Meals } />
+        <Route exact path="/bebidas" component={ Drinks } />
+        <Route exact path="/comidas/:idMeal" component={ MealRecipeDetails } />
+        <Route exact path="/bebidas/:idDrink" component={ DrinkRecipeDetails } />
+        <Route
+          exact
+          path="/comidas/:idMeal/in-progress"
+          component={ MealRecipeInProgress }
+        />
+        <Route
+          exact
+          path="/bebidas/:idDrink/in-progress"
+          component={ DrinkRecipeInProgress }
+        />
+        <Route exact path="/explorar" component={ Explore } />
+        <Route exact path="/explorar/comidas" component={ ExploreMeals } />
+        <Route exact path="/explorar/bebidas" component={ ExploreDrinks } />
+        <Route
+          exact
+          path="/explorar/comidas/ingredientes"
+          component={ ExploreMealsByIngredients }
+        />
+        <Route
+          exact
+          path="/explorar/bebidas/ingredientes"
+          component={ ExploreDrinksByIngredients }
+        />
+        <Route exact path="/explorar/comidas/area" component={ ExploreOrigin } />
+        <Route exact path="/perfil" component={ Profile } />
+        <Route exact path="/receitas-feitas" component={ RecipesMade } />
+        <Route exact path="/receitas-favoritas" component={ FavoritesRecipes } />
+        <Route component={ NotFound } />
+      </Switch>
+    </>
   );
 }
 
 export default Routes;
+
+/*
+Referência para o Hook ScrollToTop:
+https://stackoverflow.com/questions/36904185/react-router-scroll-to-top-on-every-transition
+*/

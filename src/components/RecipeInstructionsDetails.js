@@ -3,9 +3,15 @@ import PropTypes from 'prop-types';
 
 function RecipeInstructionsDetails({ recipeDetails: { strInstructions } }) {
   return (
-    <section>
-      <h2>Instructions</h2>
-      <p data-testid="instructions">{strInstructions}</p>
+    <section className="details-containers">
+      <h2 className="recipe-subtitle">Instructions</h2>
+      <p
+        className="instructions"
+        data-testid="instructions"
+      >
+        {strInstructions}
+
+      </p>
     </section>
   );
 }

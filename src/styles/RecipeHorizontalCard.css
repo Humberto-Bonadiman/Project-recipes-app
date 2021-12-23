@@ -1,0 +1,100 @@
+.recipe-horizontal-card {
+  background-color: rgb(116, 165, 162);
+  border-radius: 5px;
+  box-shadow: 0 3px 5px 1px rgb(165, 165, 165);
+  color: white;
+  display: flex;
+  height: 155px;
+  justify-content: space-around;
+  letter-spacing: 0.5px;
+  margin: 2.5% 2.5% 0;
+  padding: 5px;
+  position: relative;
+  top: 0;
+  width: 100%;
+}
+
+.recipe-horizontal-card:hover {
+  color: white;
+  text-decoration: none;
+}
+
+.recipe-horizontal-card:last-child {
+  margin-bottom: 20px;
+}
+
+.card-left-side {
+  width: 45%;
+}
+
+.card-left-side img {
+  height: 100%;
+}
+
+.card-right-side {
+  margin-left: 7px;
+  padding: 3px 0;
+  width: 54%;
+}
+
+.first-line-card {
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: -5px;
+}
+
+.card-category {
+  align-self: flex-end;
+  font-size: 14px;
+  margin: auto 0;
+}
+
+.share-btn-horizontal {
+  background-color: rgb(116, 165, 162);
+  border: none;
+}
+
+.share-btn-horizontal img {
+  filter: invert(100%) sepia(100%) saturate(0%)
+    hue-rotate(156deg) brightness(105%) contrast(103%);
+}
+
+.card-name-horizontal {
+  color: white;
+  font-size: 20px;
+  font-weight: 600;
+  margin: 5px 0 10px;
+}
+
+.card-date {
+  font-size: 15px;
+}
+
+.tag {
+  background-color: darkslategray;
+  border-radius: 10px;
+  font-size: 13px;
+  margin-right: 3px;
+  padding: 3px 6px;
+}
+
+.favorite-btn-horizontal {
+  background-color: rgb(116, 165, 162);
+  border: none;
+}
+
+.favorite-btn-horizontal img {
+  filter: invert(100%) sepia(100%) saturate(0%)
+    hue-rotate(156deg) brightness(105%) contrast(103%);
+}
+
+.btns-horizontal {
+  display: flex;
+  justify-content: space-evenly;
+  padding: 2px;
+}
+
+.share-btn-horizontal:focus, .favorite-btn-horizontal:focus {
+  outline: none;
+}
