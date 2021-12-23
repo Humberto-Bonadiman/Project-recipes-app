@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
-import PropTypes from 'prop-types';
+import { useHistory } from 'react-router';
 import '../styles/Login.css';
 import appLogo from '../images/recipe-app-logo.png';
 
-function Login({ history }) {
+function Login() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const history = useHistory();
 
   const isEmailValid = (userEmail) => {
     const regexEmail = /^[\w-.]+@([\w-]+\.)+[\w-]{2,4}$/;
@@ -55,11 +56,5 @@ function Login({ history }) {
     </main>
   );
 }
-
-Login.propTypes = {
-  history: PropTypes.shape({
-    push: PropTypes.func.isRequired,
-  }).isRequired,
-};
 
 export default Login;

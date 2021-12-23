@@ -81,9 +81,9 @@ function FinishRecipeButton({ recipeDetails, ingredientsUsed }) {
 }
 
 FinishRecipeButton.propTypes = {
-  recipeDetails: PropTypes.objectOf(PropTypes.string),
-  ingredientsUsed: PropTypes.arrayOf(PropTypes.string),
-}.isRequired;
+  recipeDetails: PropTypes.objectOf(PropTypes.string).isRequired,
+  ingredientsUsed: PropTypes.arrayOf(PropTypes.string).isRequired,
+};
 
 export default FinishRecipeButton;
 
