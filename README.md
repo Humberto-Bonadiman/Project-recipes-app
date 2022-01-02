@@ -39,6 +39,30 @@ Após cada um dos passos, haverá um exemplo do comando a ser digitado para faze
 
 ## Ilustrações
 
+### Tela de login
+![Tela de login](Tela-de-login.png)
+
+### Tela comidas
+![Tela de comidas e botões](botoes-comidas.gif)
+
+### Tela bebidas
+![Tela de bebidas](pagina-bebidas.png)
+
+### Buscar receita por nome, ingredientes ou primeira letra
+![Explorar recita por](tela-explorar-por.png)
+
+### Realizando receita
+![Realizando uma receita](realizando-receita.gif)
+
+### Tela de recitas favoritas
+![Receitas favoritas](tela-favoritas.png)
+
+### Tela explorar por comidas ou bebidas
+![Tela explorar por comidas ou bebidas](tela-explorar.png)
+
+### Tela de perfil
+![Tela de perfil](tela-perfil.png)
+
 ---
 
 ## Requisitos do projeto
