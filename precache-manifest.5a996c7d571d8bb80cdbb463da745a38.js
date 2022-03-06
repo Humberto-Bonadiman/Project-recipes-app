@@ -1,18 +1,18 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "63f05c006903c1cc0542553972159473",
+    "revision": "e441dc511d21a457b2a54f9162ed86ee",
     "url": "/Project-recipes-app/index.html"
   },
   {
-    "revision": "39fded6781865be47a2d",
-    "url": "/Project-recipes-app/static/css/2.95258f03.chunk.css"
+    "revision": "ad38133b7e4261d92e36",
+    "url": "/Project-recipes-app/static/css/2.74662cff.chunk.css"
   },
   {
     "revision": "8f8ca52bb07b2ea2fd81",
     "url": "/Project-recipes-app/static/css/main.33397ea6.chunk.css"
   },
   {
-    "revision": "39fded6781865be47a2d",
+    "revision": "ad38133b7e4261d92e36",
     "url": "/Project-recipes-app/static/js/2.246889f9.chunk.js"
   },
   {
