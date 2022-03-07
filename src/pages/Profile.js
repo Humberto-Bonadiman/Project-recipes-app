@@ -10,7 +10,7 @@ function Profile() {
 
   const handleLogout = () => {
     localStorage.clear();
-    history.push('/');
+    history.push('/Project-recipes-app/');
   };
 
   return (
