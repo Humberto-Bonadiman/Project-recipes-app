@@ -24,7 +24,7 @@ function Routes() {
     <>
       <ScrollToTop />
       <Switch>
-        <Route exact path="/" component={ Login } />
+        <Route exact path="/Project-recipes-app" component={ Login } />
         <Route exact path="/comidas" component={ Meals } />
         <Route exact path="/bebidas" component={ Drinks } />
         <Route exact path="/comidas/:idMeal" component={ MealRecipeDetails } />
