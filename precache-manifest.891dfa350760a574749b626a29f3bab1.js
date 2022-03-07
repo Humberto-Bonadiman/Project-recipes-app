@@ -1,27 +1,27 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "e441dc511d21a457b2a54f9162ed86ee",
+    "revision": "1ae8a0aa60df2792a3ff56a287521827",
     "url": "/Project-recipes-app/index.html"
   },
   {
-    "revision": "ad38133b7e4261d92e36",
+    "revision": "7aee647f95a0b18bc42f",
     "url": "/Project-recipes-app/static/css/2.74662cff.chunk.css"
   },
   {
-    "revision": "8f8ca52bb07b2ea2fd81",
+    "revision": "ca9c547fd128d8de6aaf",
     "url": "/Project-recipes-app/static/css/main.33397ea6.chunk.css"
   },
   {
-    "revision": "ad38133b7e4261d92e36",
-    "url": "/Project-recipes-app/static/js/2.246889f9.chunk.js"
+    "revision": "7aee647f95a0b18bc42f",
+    "url": "/Project-recipes-app/static/js/2.c4908db8.chunk.js"
   },
   {
     "revision": "9b318b6fb13190fe82c0677e9264b3c7",
-    "url": "/Project-recipes-app/static/js/2.246889f9.chunk.js.LICENSE.txt"
+    "url": "/Project-recipes-app/static/js/2.c4908db8.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "8f8ca52bb07b2ea2fd81",
-    "url": "/Project-recipes-app/static/js/main.b618f9a7.chunk.js"
+    "revision": "ca9c547fd128d8de6aaf",
+    "url": "/Project-recipes-app/static/js/main.0f38e892.chunk.js"
   },
   {
     "revision": "b6a0a297aadcc5537cee",

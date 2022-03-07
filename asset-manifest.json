@@ -1,19 +1,19 @@
 {
   "files": {
     "main.css": "/Project-recipes-app/static/css/main.33397ea6.chunk.css",
-    "main.js": "/Project-recipes-app/static/js/main.b618f9a7.chunk.js",
-    "main.js.map": "/Project-recipes-app/static/js/main.b618f9a7.chunk.js.map",
+    "main.js": "/Project-recipes-app/static/js/main.0f38e892.chunk.js",
+    "main.js.map": "/Project-recipes-app/static/js/main.0f38e892.chunk.js.map",
     "runtime-main.js": "/Project-recipes-app/static/js/runtime-main.f6c062d5.js",
     "runtime-main.js.map": "/Project-recipes-app/static/js/runtime-main.f6c062d5.js.map",
     "static/css/2.74662cff.chunk.css": "/Project-recipes-app/static/css/2.74662cff.chunk.css",
-    "static/js/2.246889f9.chunk.js": "/Project-recipes-app/static/js/2.246889f9.chunk.js",
-    "static/js/2.246889f9.chunk.js.map": "/Project-recipes-app/static/js/2.246889f9.chunk.js.map",
+    "static/js/2.c4908db8.chunk.js": "/Project-recipes-app/static/js/2.c4908db8.chunk.js",
+    "static/js/2.c4908db8.chunk.js.map": "/Project-recipes-app/static/js/2.c4908db8.chunk.js.map",
     "index.html": "/Project-recipes-app/index.html",
-    "precache-manifest.5a996c7d571d8bb80cdbb463da745a38.js": "/Project-recipes-app/precache-manifest.5a996c7d571d8bb80cdbb463da745a38.js",
+    "precache-manifest.891dfa350760a574749b626a29f3bab1.js": "/Project-recipes-app/precache-manifest.891dfa350760a574749b626a29f3bab1.js",
     "service-worker.js": "/Project-recipes-app/service-worker.js",
     "static/css/2.74662cff.chunk.css.map": "/Project-recipes-app/static/css/2.74662cff.chunk.css.map",
     "static/css/main.33397ea6.chunk.css.map": "/Project-recipes-app/static/css/main.33397ea6.chunk.css.map",
-    "static/js/2.246889f9.chunk.js.LICENSE.txt": "/Project-recipes-app/static/js/2.246889f9.chunk.js.LICENSE.txt",
+    "static/js/2.c4908db8.chunk.js.LICENSE.txt": "/Project-recipes-app/static/js/2.c4908db8.chunk.js.LICENSE.txt",
     "static/media/blackHeartIcon.svg": "/Project-recipes-app/static/media/blackHeartIcon.d0456e61.svg",
     "static/media/drinkIcon.svg": "/Project-recipes-app/static/media/drinkIcon.f87c47c3.svg",
     "static/media/exploreIcon.svg": "/Project-recipes-app/static/media/exploreIcon.157945ff.svg",
@@ -27,8 +27,8 @@
   "entrypoints": [
     "static/js/runtime-main.f6c062d5.js",
     "static/css/2.74662cff.chunk.css",
-    "static/js/2.246889f9.chunk.js",
+    "static/js/2.c4908db8.chunk.js",
     "static/css/main.33397ea6.chunk.css",
-    "static/js/main.b618f9a7.chunk.js"
+    "static/js/main.0f38e892.chunk.js"
   ]
 }
