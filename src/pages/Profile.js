@@ -10,7 +10,7 @@ function Profile() {
 
   const handleLogout = () => {
     localStorage.clear();
-    history.push('https://humberto-bonadiman.github.io/Project-recipes-app/');
+    return history.push('/Project-recipes-app');
   };
 
   return (
